@@ -47,7 +47,7 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
 
 @interface PKAssembly ()
 - (void)consume:(PKToken *)tok;
-@property (nonatomic, readwrite, retain) NSMutableArray *stack;
+@property (nonatomic, readwrite, strong) NSMutableArray *stack;
 @end
 
 @interface PKParser ()

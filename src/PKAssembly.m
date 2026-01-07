@@ -31,20 +31,20 @@ static NSString * const PKAssemblyDefaultCursor = @"^";
 - (NSString *)consumedObjectsJoinedByString:(NSString *)delimiter;
 - (NSString *)lastConsumedObjects:(NSUInteger)len joinedByString:(NSString *)delimiter;
 
-@property (nonatomic, readwrite, retain) NSMutableArray *stack;
+@property (nonatomic, readwrite, strong) NSMutableArray *stack;
 @property (nonatomic, assign) NSUInteger index;
-@property (nonatomic, retain) NSString *defaultDelimiter;
-@property (nonatomic, retain) NSString *defaultCursor;
+@property (nonatomic, strong) NSString *defaultDelimiter;
+@property (nonatomic, strong) NSString *defaultCursor;
 @property (nonatomic, readonly) NSUInteger objectsConsumed;
 
 - (void)consume:(PKToken *)tok;
-@property (nonatomic, retain) NSMutableArray *tokens;
+@property (nonatomic, strong) NSMutableArray *tokens;
 @end
 
 @implementation PKAssembly
 
 + (PKAssembly *)assembly {
-    return [[[self alloc] init] autorelease];
+    return [[self alloc] init];
 }
 
 
@@ -60,16 +60,6 @@ static NSString * const PKAssemblyDefaultCursor = @"^";
 #endif
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.stack = nil;
-    self.target = nil;
-    self.defaultDelimiter = nil;
-    self.defaultCursor = nil;
-    self.tokens = nil;
-    [super dealloc];
 }
 
 
@@ -91,7 +81,7 @@ static NSString * const PKAssemblyDefaultCursor = @"^";
     NSString *c = _defaultCursor ? _defaultCursor : PKAssemblyDefaultCursor;
     [s appendFormat:@"]%@%@", [self consumedObjectsJoinedByString:d], c];
     
-    return [[s copy] autorelease];
+    return [s copy];
 }
 
 
@@ -113,7 +103,7 @@ static NSString * const PKAssemblyDefaultCursor = @"^";
 - (id)pop {
     id result = nil;
     if (![self isStackEmpty]) {
-        result = [[[_stack lastObject] retain] autorelease];
+        result = [_stack lastObject];
         [_stack removeLastObject];
     }
     return result;
@@ -215,7 +205,7 @@ static NSString * const PKAssemblyDefaultCursor = @"^";
         }
     }
     
-    return [[s copy] autorelease];
+    return [s copy];
 }
 
 @end

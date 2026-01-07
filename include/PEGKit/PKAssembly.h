@@ -75,14 +75,14 @@
     @property   stack
     @brief      This assembly's stack.
 */
-@property (nonatomic, readonly, retain) NSMutableArray *stack;
+@property (nonatomic, readonly, strong) NSMutableArray *stack;
 
 /*!
     @property   target
     @brief      This assembly's target.
     @details    The object identified as this assembly's "target". Clients can set and retrieve a target, which can be a convenient supplement as a place to work, in addition to the assembly's stack. For example, a parser for an HTML file might use a web page object as its "target". As the parser recognizes markup commands like &lt;head>, it could apply its findings to the target.
 */
-@property (nonatomic, retain) id target;
+@property (nonatomic, strong) id target;
 
 @property (nonatomic) BOOL preservesWhitespaceTokens;
 @property (nonatomic) BOOL gathersConsumedTokens;
