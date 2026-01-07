@@ -55,7 +55,7 @@
     @property   fallbackState
     @brief      The state this tokenizer defers to if it starts, but ultimately aborts recognizing a token
 */
-@property (nonatomic, retain) PKTokenizerState *fallbackState;
+@property (nonatomic, strong) PKTokenizerState *fallbackState;
 
 @property (nonatomic, assign) BOOL disabled;
 @end

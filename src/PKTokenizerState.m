@@ -37,20 +37,12 @@
 - (NSString *)bufferedString;
 - (PKTokenizerState *)nextTokenizerStateFor:(PKUniChar)c tokenizer:(PKTokenizer *)t;
 
-@property (nonatomic, retain) NSMutableString *stringbuf;
+@property (nonatomic, strong) NSMutableString *stringbuf;
 @property (nonatomic) NSUInteger offset;
-@property (nonatomic, retain) NSMutableArray *fallbackStates;
+@property (nonatomic, strong) NSMutableArray *fallbackStates;
 @end
 
 @implementation PKTokenizerState
-
-- (void)dealloc {
-    self.stringbuf = nil;
-    self.fallbackState = nil;
-    self.fallbackStates = nil;
-    [super dealloc];
-}
-
 
 - (PKToken *)nextTokenFromReader:(PKReader *)r startingWith:(PKUniChar)cin tokenizer:(PKTokenizer *)t {
     NSAssert1(0, @"%s must be overriden", __PRETTY_FUNCTION__);
@@ -98,7 +90,7 @@
 
 
 - (NSString *)bufferedString {
-    return [[_stringbuf copy] autorelease];
+    return [_stringbuf copy];
 }
 
 
