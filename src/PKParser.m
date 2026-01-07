@@ -51,14 +51,14 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
 @end
 
 @interface PKParser ()
-@property (nonatomic, assign, readwrite) id delegate; // weak ref
-@property (nonatomic, retain) PKRecognitionException *exception;
-@property (nonatomic, retain) NSMutableArray *lookahead;
-@property (nonatomic, retain) NSMutableArray *markers;
+@property (nonatomic, assign, readwrite) id delegate;
+@property (nonatomic, strong) PKRecognitionException *exception;
+@property (nonatomic, strong) NSMutableArray *lookahead;
+@property (nonatomic, strong) NSMutableArray *markers;
 @property (nonatomic, assign) NSInteger p;
 @property (nonatomic, assign, readonly) BOOL isSpeculating;
-@property (nonatomic, retain) NSCountedSet *resyncSet;
-@property (nonatomic, retain) NSMutableArray *tokenSource;
+@property (nonatomic, strong) NSCountedSet *resyncSet;
+@property (nonatomic, strong) NSMutableArray *tokenSource;
 @property (nonatomic, assign) NSUInteger tokenSourceIndex;
 @property (nonatomic, assign) NSUInteger tokenSourceCount;
 
@@ -101,7 +101,7 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
         self.enableActions = YES;
         
         // create a single exception for reuse in control flow
-        self.exception = [[[PKRecognitionException alloc] init] autorelease];
+        self.exception = [[PKRecognitionException alloc] init];
         
         self.tokenKindTab = [NSMutableDictionary dictionary];
 
@@ -127,24 +127,6 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
 
 - (void)dealloc {
     self.delegate = nil;
-    self.tokenizer = nil;
-    self.assembly = nil;
-    self.exception = nil;
-    self.lookahead = nil;
-    self.markers = nil;
-    self.tokenKindTab = nil;
-    self.tokenKindNameTab = nil;
-    self.resyncSet = nil;
-    self.tokenSource = nil;
-    self.startRuleName = nil;
-    self.statementTerminator = nil;
-    self.singleLineCommentMarker = nil;
-    self.multiLineCommentStartMarker = nil;
-    self.multiLineCommentEndMarker = nil;
-    self.blockStartMarker = nil;
-    self.blockEndMarker = nil;
-    self.braces = nil;
-    [super dealloc];
 }
 
 
@@ -223,7 +205,7 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
 
 - (id)parseTokens:(NSArray *)input error:(NSError **)outError {
     
-    self.tokenSource = [[input mutableCopy] autorelease];
+    self.tokenSource = [input mutableCopy];
     self.tokenSourceIndex = 0;
     self.tokenSourceCount = [_tokenSource count];
     
@@ -278,10 +260,7 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
             } else {
                 result = _assembly;
             }
-
-            [result retain]; // +1
         }
-        [result autorelease]; // -1
 
     }
     @catch (PKRecognitionException *rex) {
@@ -346,7 +325,7 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
     userInfo[PEGKitErrorLineNumberKey] = lineNumVal;
     
     // convert to NSError
-    NSError *err = [NSError errorWithDomain:PEGKitErrorDomain code:PEGKitRecognitionErrorCode userInfo:[[userInfo copy] autorelease]];
+    NSError *err = [NSError errorWithDomain:PEGKitErrorDomain code:PEGKitRecognitionErrorCode userInfo:[userInfo copy]];
     return err;
 }
 
@@ -406,7 +385,10 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
     if (self.isSpeculating) return;
     
     if (_delegate && [_delegate respondsToSelector:sel]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         [_delegate performSelector:sel withObject:self withObject:_assembly];
+#pragma clang diagnostic pop
     }
 }
 
@@ -415,7 +397,10 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
     if (self.isSpeculating) return;
     
     if (_delegate && [_delegate respondsToSelector:sel]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         [_delegate performSelector:sel withObject:self withObject:ruleName];
+#pragma clang diagnostic pop
     }
 }
 
@@ -548,7 +533,7 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
     va_list vargs;
     va_start(vargs, fmt);
     
-    NSString *str = [[[NSString alloc] initWithFormat:fmt arguments:vargs] autorelease];
+    NSString *str = [[NSString alloc] initWithFormat:fmt arguments:vargs];
     
     va_end(vargs);
     
@@ -572,7 +557,7 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
     va_list vargs;
     va_start(vargs, fmt);
     
-    NSString *str = [[[NSString alloc] initWithFormat:fmt arguments:vargs] autorelease];
+    NSString *str = [[NSString alloc] initWithFormat:fmt arguments:vargs];
 
     va_end(vargs);
 
@@ -787,7 +772,10 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
     BOOL failed = NO;
     NSInteger startTokenIndex = self.p;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     @try { [self performSelector:ruleSelector]; }
+#pragma clang diagnostic pop
     @catch (PKRecognitionException *ex) { failed = YES; @throw ex; }
     @finally {
         if (self.isSpeculating) [self memoize:memoization atIndex:startTokenIndex failed:failed];
