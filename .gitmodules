@@ -1,4 +1,4 @@
 [submodule "lib/TDTemplateEngine"]
 	path = lib/TDTemplateEngine
-	url = https://github.com/itod/tdtemplateengine.git
-	branch = master
+	url = https://github.com/samkrishna/tdtemplateengine.git
+	branch = arc-conversion
