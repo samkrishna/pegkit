@@ -52,13 +52,6 @@
 }
 
 
-- (void)dealloc {
-    self.string = nil;
-    self.stream = nil;
-    [super dealloc];
-}
-
-
 - (NSString *)debugDescription {
     NSString *buff = [NSString stringWithFormat:@"%@^%@", [_string substringToIndex:_offset], [_string substringFromIndex:_offset]];
     return [NSString stringWithFormat:@"<%@ %p `%@`>", [self class], self, buff];
@@ -67,9 +60,8 @@
 
 - (void)setString:(NSString *)s {
     NSAssert(!_stream, @"");
-    
+
     if (_string != s) {
-        [_string autorelease];
         _string = [s copy];
         self.length = [_string length];
     }
@@ -82,8 +74,7 @@
     NSAssert(!_string, @"");
 
     if (_stream != s) {
-        [_stream autorelease];
-        _stream = [s retain];
+        _stream = s;
         _length = NSNotFound;
     }
     // reset cursor
