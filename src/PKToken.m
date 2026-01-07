@@ -92,7 +92,7 @@ static PKTokenEOF *EOFToken = nil;
 
 
 + (instancetype)tokenWithTokenType:(PKTokenType)t stringValue:(NSString *)s doubleValue:(double)n {
-    return [[[self alloc] initWithTokenType:t stringValue:s doubleValue:n] autorelease];
+    return [[self alloc] initWithTokenType:t stringValue:s doubleValue:n];
 }
 
 
@@ -125,15 +125,8 @@ static PKTokenEOF *EOFToken = nil;
 }
 
 
-- (void)dealloc {
-    self.stringValue = nil;
-    self.value = nil;
-    [super dealloc];
-}
-
-
 - (id)copyWithZone:(NSZone *)zone {
-    return [self retain]; // tokens are immutable
+    return self; // tokens are immutable
 }
 
 
