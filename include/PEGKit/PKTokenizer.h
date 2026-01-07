@@ -121,57 +121,57 @@
     @brief      The string to read from.
 */
 @property (nonatomic, copy) NSString *string;
-@property (nonatomic, retain) NSInputStream *stream;
+@property (nonatomic, strong) NSInputStream *stream;
 
 /*!
     @property    numberState
     @brief       The state this tokenizer uses to build numbers.
 */
-@property (nonatomic, retain) PKNumberState *numberState;
+@property (nonatomic, strong) PKNumberState *numberState;
 
 /*!
     @property   quoteState
     @brief      The state this tokenizer uses to build quoted strings.
 */
-@property (nonatomic, retain) PKQuoteState *quoteState;
+@property (nonatomic, strong) PKQuoteState *quoteState;
 
 /*!
     @property   commentState
     @brief      The state this tokenizer uses to recognize (and possibly ignore) comments.
 */
-@property (nonatomic, retain) PKCommentState *commentState;
+@property (nonatomic, strong) PKCommentState *commentState;
 
 /*!
     @property   symbolState
     @brief      The state this tokenizer uses to recognize symbols.
 */
-@property (nonatomic, retain) PKSymbolState *symbolState;
+@property (nonatomic, strong) PKSymbolState *symbolState;
 
 /*!
     @property   whitespaceState
     @brief      The state this tokenizer uses to recognize (and possibly ignore) whitespace.
 */
-@property (nonatomic, retain) PKWhitespaceState *whitespaceState;
+@property (nonatomic, strong) PKWhitespaceState *whitespaceState;
 
 /*!
     @property   wordState
     @brief      The state this tokenizer uses to build words.
 */
-@property (nonatomic, retain) PKWordState *wordState;
+@property (nonatomic, strong) PKWordState *wordState;
 
 /*!
     @property   delimitState
     @brief      The state this tokenizer uses to build delimited strings.
 */
-@property (nonatomic, retain) PKDelimitState *delimitState;
+@property (nonatomic, strong) PKDelimitState *delimitState;
 
-@property (nonatomic, retain) PKURLState *URLState;
+@property (nonatomic, strong) PKURLState *URLState;
 #if PK_PLATFORM_EMAIL_STATE
-@property (nonatomic, retain) PKEmailState *emailState;
+@property (nonatomic, strong) PKEmailState *emailState;
 #endif
 #if PK_PLATFORM_TWITTER_STATE
-@property (nonatomic, retain) PKTwitterState *twitterState;
-@property (nonatomic, retain) PKHashtagState *hashtagState;
+@property (nonatomic, strong) PKTwitterState *twitterState;
+@property (nonatomic, strong) PKHashtagState *hashtagState;
 #endif
 
 @property (nonatomic, readonly) NSUInteger lineNumber;

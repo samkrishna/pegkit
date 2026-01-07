@@ -37,8 +37,8 @@
 - (PKTokenizerState *)tokenizerStateFor:(PKUniChar)c;
 - (PKTokenizerState *)defaultTokenizerStateFor:(PKUniChar)c;
 - (NSInteger)tokenKindForStringValue:(NSString *)str;
-@property (nonatomic, retain) PKReader *reader;
-@property (nonatomic, retain) NSMutableArray *tokenizerStates;
+@property (nonatomic, strong) PKReader *reader;
+@property (nonatomic, strong) NSMutableArray *tokenizerStates;
 @property (nonatomic, readwrite) NSUInteger lineNumber;
 @end
 
@@ -50,12 +50,12 @@
 
 
 + (PKTokenizer *)tokenizerWithString:(NSString *)s {
-    return [[[self alloc] initWithString:s] autorelease];
+    return [[self alloc] initWithString:s];
 }
 
 
 + (PKTokenizer *)tokenizerWithStream:(NSInputStream *)s {
-    return [[[self alloc] initWithStream:s] autorelease];
+    return [[self alloc] initWithStream:s];
 }
 
 
@@ -81,18 +81,18 @@
     if (self) {
         self.string = str;
         self.stream = stm;
-        self.reader = [[[PKReader alloc] init] autorelease];
-        
-        self.numberState     = [[[PKNumberState alloc] init] autorelease];
-        self.quoteState      = [[[PKQuoteState alloc] init] autorelease];
-        self.commentState    = [[[PKCommentState alloc] init] autorelease];
-        self.symbolState     = [[[PKSymbolState alloc] init] autorelease];
-        self.whitespaceState = [[[PKWhitespaceState alloc] init] autorelease];
-        self.wordState       = [[[PKWordState alloc] init] autorelease];
-        self.delimitState    = [[[PKDelimitState alloc] init] autorelease];
-        self.URLState        = [[[PKURLState alloc] init] autorelease];
+        self.reader = [[PKReader alloc] init];
+
+        self.numberState     = [[PKNumberState alloc] init];
+        self.quoteState      = [[PKQuoteState alloc] init];
+        self.commentState    = [[PKCommentState alloc] init];
+        self.symbolState     = [[PKSymbolState alloc] init];
+        self.whitespaceState = [[PKWhitespaceState alloc] init];
+        self.wordState       = [[PKWordState alloc] init];
+        self.delimitState    = [[PKDelimitState alloc] init];
+        self.URLState        = [[PKURLState alloc] init];
 #if PK_PLATFORM_EMAIL_STATE
-        self.emailState      = [[[PKEmailState alloc] init] autorelease];
+        self.emailState      = [[PKEmailState alloc] init];
 #endif
         _numberState.fallbackState = _symbolState;
         _quoteState.fallbackState = _symbolState;
@@ -102,12 +102,12 @@
 #else
         _URLState.fallbackState = _wordState;
 #endif
-        
+
 #if PK_PLATFORM_TWITTER_STATE
-        self.twitterState    = [[[PKTwitterState alloc] init] autorelease];
+        self.twitterState    = [[PKTwitterState alloc] init];
         _twitterState.fallbackState = symbolState;
 
-        self.hashtagState    = [[[PKHashtagState alloc] init] autorelease];
+        self.hashtagState    = [[PKHashtagState alloc] init];
         _hashtagState.fallbackState = symbolState;
 #endif
 
@@ -141,31 +141,6 @@
 //        _delimitState.allowsUnbalancedStrings = YES;
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.string = nil;
-    self.stream = nil;
-    self.reader = nil;
-    self.tokenizerStates = nil;
-    self.numberState = nil;
-    self.quoteState = nil;
-    self.commentState = nil;
-    self.symbolState = nil;
-    self.whitespaceState = nil;
-    self.wordState = nil;
-    self.delimitState = nil;
-    self.URLState = nil;
-#if PK_PLATFORM_EMAIL_STATE
-    self.emailState = nil;
-#endif
-#if PK_PLATFORM_TWITTER_STATE
-    self.twitterState = nil;
-    self.hashtagState = nil;
-#endif
-    self.delegate = nil;
-    [super dealloc];
 }
 
 
@@ -204,28 +179,28 @@
 }
 
 
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len {
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(__unsafe_unretained id *)stackbuf count:(NSUInteger)len {
     NSUInteger count = 0;
 
     PKToken *tok = nil;
     PKToken *eof = [PKToken EOFToken];
-    
+
     if (0 == state->state) {
         tok = [self nextToken];
     } else {
-        tok = (PKToken *)state->state;
+        tok = (__bridge PKToken *)(void *)state->state;
     }
-    
+
     while (tok != eof && count < len) {
         stackbuf[count] = tok;
         tok = [self nextToken];
         count++;
     }
-    
-    state->state = (unsigned long)tok;
+
+    state->state = (unsigned long)(__bridge void *)tok;
     state->itemsPtr = stackbuf;
-    state->mutationsPtr = (unsigned long *)self;
-    
+    state->mutationsPtr = (unsigned long *)(__bridge void *)self;
+
     return count;
 }
 
@@ -242,9 +217,8 @@
 
 - (void)setReader:(PKReader *)r {
     if (_reader != r) {
-        [_reader autorelease];
-        _reader = [r retain];
-        
+        _reader = r;
+
         if (_string) {
             _reader.string = _string;
         } else {
@@ -256,7 +230,6 @@
 
 - (void)setString:(NSString *)s {
     if (_string != s) {
-        [_string autorelease];
         _string = [s copy];
     }
     _reader.string = _string;
@@ -266,8 +239,7 @@
 
 - (void)setStream:(NSInputStream *)s {
     if (_stream != s) {
-        [_stream autorelease];
-        _stream = [s retain];
+        _stream = s;
     }
     _reader.stream = _stream;
     self.lineNumber = 1;
