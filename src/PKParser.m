@@ -125,11 +125,6 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
 }
 
 
-- (void)dealloc {
-    self.delegate = nil;
-}
-
-
 #pragma mark -
 #pragma mark PKTokenizerDelegate
 
