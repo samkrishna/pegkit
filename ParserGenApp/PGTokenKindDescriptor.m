@@ -33,8 +33,8 @@ static PGTokenKindDescriptor *sEOFDesc = nil;
     if ([PGTokenKindDescriptor class] == self) {
         sCache = [[NSMutableDictionary alloc] init];
         
-        sAnyDesc = [[PGTokenKindDescriptor descriptorWithStringValue:@"TOKEN_KIND_BUILTIN_ANY" name:@"TOKEN_KIND_BUILTIN_ANY"] retain];
-        sEOFDesc = [[PGTokenKindDescriptor descriptorWithStringValue:@"TOKEN_KIND_BUILTIN_EOF" name:@"TOKEN_KIND_BUILTIN_EOF"] retain];
+        sAnyDesc = [PGTokenKindDescriptor descriptorWithStringValue:@"TOKEN_KIND_BUILTIN_ANY" name:@"TOKEN_KIND_BUILTIN_ANY"];
+        sEOFDesc = [PGTokenKindDescriptor descriptorWithStringValue:@"TOKEN_KIND_BUILTIN_EOF" name:@"TOKEN_KIND_BUILTIN_EOF"];
     }
 }
 
@@ -63,7 +63,7 @@ static PGTokenKindDescriptor *sEOFDesc = nil;
     }
     
     if (!desc) {
-        desc = [[[PGTokenKindDescriptor alloc] init] autorelease];
+        desc = [[PGTokenKindDescriptor alloc] init];
         
         desc.stringValue = s;
         desc.name = name;
@@ -89,13 +89,6 @@ static PGTokenKindDescriptor *sEOFDesc = nil;
 
 + (void)clearCache {
     [sCache removeAllObjects];
-}
-
-
-- (void)dealloc {
-    self.stringValue = nil;
-    self.name = nil;
-    [super dealloc];
 }
 
 

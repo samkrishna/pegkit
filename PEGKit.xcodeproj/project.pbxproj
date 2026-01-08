@@ -339,8 +339,8 @@
 		D376F6F018D0B5190064C888 /* PGDefinitionPhaseVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E718D0B5190064C888 /* PGDefinitionPhaseVisitor.m */; };
 		D376F6F118D0B5190064C888 /* PGParserGenVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EA18D0B5190064C888 /* PGParserGenVisitor.m */; };
 		D376F6F218D0B5190064C888 /* PGParserGenVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EA18D0B5190064C888 /* PGParserGenVisitor.m */; };
-		D376F6F318D0B5190064C888 /* PGTokenKindDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EC18D0B5190064C888 /* PGTokenKindDescriptor.m */; };
-		D376F6F418D0B5190064C888 /* PGTokenKindDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EC18D0B5190064C888 /* PGTokenKindDescriptor.m */; };
+		D376F6F318D0B5190064C888 /* PGTokenKindDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EC18D0B5190064C888 /* PGTokenKindDescriptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D376F6F418D0B5190064C888 /* PGTokenKindDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EC18D0B5190064C888 /* PGTokenKindDescriptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D37D8E361571A5A200CDB822 /* css.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D380B5080F0D71A90009EC13 /* css.grammar */; };
 		D37D8E391571A5A200CDB822 /* html.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D380AFBC0F0C54B60009EC13 /* html.grammar */; };
 		D37D8E3D1571A5A200CDB822 /* json_with_comments.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D383498A0F0C0CF30055E4E0 /* json_with_comments.grammar */; };
