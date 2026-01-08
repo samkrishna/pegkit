@@ -5,10 +5,10 @@
 #import "AltParser.h"
 
 @interface AltParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) AltParser *parser;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) AltParser *parser;
 @end
 
 @implementation AltParserTest
@@ -25,10 +25,10 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"Alt";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     [_root visit:_visitor];
     
-    self.parser = [[[AltParser alloc] initWithDelegate:self] autorelease];
+    self.parser = [[AltParser alloc] initWithDelegate:self];
 
 #if TD_EMIT
     path = [[NSString stringWithFormat:@"%s/test/AltParser.h", getenv("PWD")] stringByExpandingTildeInPath];

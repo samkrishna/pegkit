@@ -20,7 +20,7 @@
 
 
 + (id)symbolWithName:(NSString *)name type:(id <PKType>)type {
-    return [[[self alloc] initWithName:name type:type] autorelease];
+    return [[self alloc] initWithName:name type:type];
 }
 
 
@@ -45,7 +45,6 @@
     self.type = nil;
     self.def = nil;
     self.scope = nil;
-    [super dealloc];
 }
 
 

@@ -12,13 +12,13 @@
 @end
 
 @interface TDNSPredicateParserTest : XCTestCase <TDKeyPathResolver>
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) TDNSPredicateParser *parser;
-@property (nonatomic, retain) PKAssembly *res;
-@property (nonatomic, retain) NSMutableDictionary *tab;
-@property (nonatomic, retain) PKToken *openCurly;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) TDNSPredicateParser *parser;
+@property (nonatomic, strong) PKAssembly *res;
+@property (nonatomic, strong) NSMutableDictionary *tab;
+@property (nonatomic, strong) PKToken *openCurly;
 @end
 
 @implementation TDNSPredicateParserTest
@@ -44,7 +44,7 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"TDNSPredicate";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     [_root visit:_visitor];
     
 #if TD_EMIT
@@ -64,7 +64,7 @@
     self.tab = [NSMutableDictionary dictionary];
     self.openCurly = [PKToken tokenWithTokenType:PKTokenTypeSymbol stringValue:@"{" doubleValue:0];
     
-    self.parser = [[[TDNSPredicateParser alloc] initWithDelegate:self] autorelease];
+    self.parser = [[TDNSPredicateParser alloc] initWithDelegate:self];
 }
 
 

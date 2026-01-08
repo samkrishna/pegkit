@@ -16,8 +16,6 @@
 
 
 - (void)tearDown {
-    [symbolState release];
-    [r release];
 }
 
 

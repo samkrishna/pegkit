@@ -4,10 +4,10 @@
 
 @interface MiniMathParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *expr_memo;
-@property (nonatomic, retain) NSMutableDictionary *mult_memo;
-@property (nonatomic, retain) NSMutableDictionary *pow_memo;
-@property (nonatomic, retain) NSMutableDictionary *atom_memo;
+@property (nonatomic, strong) NSMutableDictionary *expr_memo;
+@property (nonatomic, strong) NSMutableDictionary *mult_memo;
+@property (nonatomic, strong) NSMutableDictionary *pow_memo;
+@property (nonatomic, strong) NSMutableDictionary *atom_memo;
 @end
 
 @implementation MiniMathParser { }
@@ -40,7 +40,6 @@
     self.pow_memo = nil;
     self.atom_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

@@ -6,7 +6,7 @@
 
 @interface GrammarActionsParser ()
     
-@property (nonatomic, retain) NSString *foo;
+@property (nonatomic, strong) NSString *foo;
 
 @end
 
@@ -37,7 +37,6 @@
     self.foo = nil;
 
 
-    [super dealloc];
 }
 
 - (void)start {

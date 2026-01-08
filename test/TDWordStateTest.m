@@ -16,8 +16,6 @@
 
 
 - (void)tearDown {
-    [wordState release];
-    [r release];
 }
 
 

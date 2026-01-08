@@ -4,13 +4,13 @@
 
 @interface AltParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *start_memo;
-@property (nonatomic, retain) NSMutableDictionary *s_memo;
-@property (nonatomic, retain) NSMutableDictionary *a_memo;
-@property (nonatomic, retain) NSMutableDictionary *b_memo;
-@property (nonatomic, retain) NSMutableDictionary *foo_memo;
-@property (nonatomic, retain) NSMutableDictionary *bar_memo;
-@property (nonatomic, retain) NSMutableDictionary *baz_memo;
+@property (nonatomic, strong) NSMutableDictionary *start_memo;
+@property (nonatomic, strong) NSMutableDictionary *s_memo;
+@property (nonatomic, strong) NSMutableDictionary *a_memo;
+@property (nonatomic, strong) NSMutableDictionary *b_memo;
+@property (nonatomic, strong) NSMutableDictionary *foo_memo;
+@property (nonatomic, strong) NSMutableDictionary *bar_memo;
+@property (nonatomic, strong) NSMutableDictionary *baz_memo;
 @end
 
 @implementation AltParser { }
@@ -49,7 +49,6 @@
     self.bar_memo = nil;
     self.baz_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

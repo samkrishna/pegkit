@@ -4,9 +4,9 @@
 
 @interface NamedActionParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *start_memo;
-@property (nonatomic, retain) NSMutableDictionary *a_memo;
-@property (nonatomic, retain) NSMutableDictionary *b_memo;
+@property (nonatomic, strong) NSMutableDictionary *start_memo;
+@property (nonatomic, strong) NSMutableDictionary *a_memo;
+@property (nonatomic, strong) NSMutableDictionary *b_memo;
 @end
 
 @implementation NamedActionParser { }
@@ -35,7 +35,6 @@
     self.a_memo = nil;
     self.b_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

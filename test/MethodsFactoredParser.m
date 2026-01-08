@@ -4,11 +4,11 @@
 
 @interface MethodsFactoredParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *start_memo;
-@property (nonatomic, retain) NSMutableDictionary *method_memo;
-@property (nonatomic, retain) NSMutableDictionary *type_memo;
-@property (nonatomic, retain) NSMutableDictionary *args_memo;
-@property (nonatomic, retain) NSMutableDictionary *arg_memo;
+@property (nonatomic, strong) NSMutableDictionary *start_memo;
+@property (nonatomic, strong) NSMutableDictionary *method_memo;
+@property (nonatomic, strong) NSMutableDictionary *type_memo;
+@property (nonatomic, strong) NSMutableDictionary *args_memo;
+@property (nonatomic, strong) NSMutableDictionary *arg_memo;
 @end
 
 @implementation MethodsFactoredParser { }
@@ -53,7 +53,6 @@
     self.args_memo = nil;
     self.arg_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

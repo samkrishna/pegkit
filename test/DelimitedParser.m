@@ -4,8 +4,8 @@
 
 @interface DelimitedParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *start_memo;
-@property (nonatomic, retain) NSMutableDictionary *s_memo;
+@property (nonatomic, strong) NSMutableDictionary *start_memo;
+@property (nonatomic, strong) NSMutableDictionary *s_memo;
 @end
 
 @implementation DelimitedParser { }
@@ -30,7 +30,6 @@
     self.start_memo = nil;
     self.s_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

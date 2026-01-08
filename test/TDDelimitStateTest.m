@@ -18,7 +18,6 @@
 
 
 - (void)tearDown {
-    [t release];
 }
 
 
@@ -895,7 +894,7 @@
 - (void)testLtDollarDollar123DollarHashAlphanumericAndWhitespaceAndNewlineAllowed {
     s = @"$$123 456\t789\n0$#";
     t.string = s;
-    NSMutableCharacterSet *cs = [[[NSCharacterSet alphanumericCharacterSet] mutableCopy] autorelease];
+    NSMutableCharacterSet *cs = [[NSCharacterSet alphanumericCharacterSet] mutableCopy];
     [cs formUnionWithCharacterSet:[NSCharacterSet whitespaceCharacterSet]];
     [cs formUnionWithCharacterSet:[NSCharacterSet newlineCharacterSet]];
     

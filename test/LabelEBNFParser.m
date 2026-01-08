@@ -4,9 +4,9 @@
 
 @interface LabelEBNFParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *s_memo;
-@property (nonatomic, retain) NSMutableDictionary *label_memo;
-@property (nonatomic, retain) NSMutableDictionary *expr_memo;
+@property (nonatomic, strong) NSMutableDictionary *s_memo;
+@property (nonatomic, strong) NSMutableDictionary *label_memo;
+@property (nonatomic, strong) NSMutableDictionary *expr_memo;
 @end
 
 @implementation LabelEBNFParser { }
@@ -37,7 +37,6 @@
     self.label_memo = nil;
     self.expr_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

@@ -5,10 +5,10 @@
 #import "MiniMathParser.h"
 
 @interface MiniMathParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) MiniMathParser *parser;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) MiniMathParser *parser;
 @end
 
 @implementation MiniMathParserTest
@@ -25,10 +25,10 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"MiniMath";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     [_root visit:_visitor];
     
-    self.parser = [[[MiniMathParser alloc] initWithDelegate:self] autorelease];
+    self.parser = [[MiniMathParser alloc] initWithDelegate:self];
 
 #if TD_EMIT
     path = [[NSString stringWithFormat:@"%s/test/MiniMathParser.h", getenv("PWD")] stringByExpandingTildeInPath];

@@ -4,13 +4,13 @@
 
 @interface ElementParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *lists_memo;
-@property (nonatomic, retain) NSMutableDictionary *list_memo;
-@property (nonatomic, retain) NSMutableDictionary *elements_memo;
-@property (nonatomic, retain) NSMutableDictionary *element_memo;
-@property (nonatomic, retain) NSMutableDictionary *lbracket_memo;
-@property (nonatomic, retain) NSMutableDictionary *rbracket_memo;
-@property (nonatomic, retain) NSMutableDictionary *comma_memo;
+@property (nonatomic, strong) NSMutableDictionary *lists_memo;
+@property (nonatomic, strong) NSMutableDictionary *list_memo;
+@property (nonatomic, strong) NSMutableDictionary *elements_memo;
+@property (nonatomic, strong) NSMutableDictionary *element_memo;
+@property (nonatomic, strong) NSMutableDictionary *lbracket_memo;
+@property (nonatomic, strong) NSMutableDictionary *rbracket_memo;
+@property (nonatomic, strong) NSMutableDictionary *comma_memo;
 @end
 
 @implementation ElementParser { }

@@ -5,16 +5,16 @@
 #import "ElementAssignParser.h"
 
 @interface RecoverySingleTokenDeletionTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) ElementAssignParser *parser;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) ElementAssignParser *parser;
 @end
 
 @implementation RecoverySingleTokenDeletionTest
 
 - (void)setUp {
-    self.parser = [[[ElementAssignParser alloc] initWithDelegate:self] autorelease];
+    self.parser = [[ElementAssignParser alloc] initWithDelegate:self];
 }
 
 - (void)tearDown {

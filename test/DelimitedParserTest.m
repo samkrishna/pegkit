@@ -5,10 +5,10 @@
 #import "DelimitedParser.h"
 
 @interface DelimitedParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) DelimitedParser *parser;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) DelimitedParser *parser;
 @end
 
 @implementation DelimitedParserTest
@@ -25,10 +25,10 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"Delimited";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     [_root visit:_visitor];
     
-    self.parser = [[[DelimitedParser alloc] initWithDelegate:self] autorelease];
+    self.parser = [[DelimitedParser alloc] initWithDelegate:self];
 
 #if TD_EMIT
     path = [[NSString stringWithFormat:@"%s/test/DelimitedParser.h", getenv("PWD")] stringByExpandingTildeInPath];

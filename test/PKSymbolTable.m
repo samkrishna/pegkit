@@ -10,7 +10,7 @@
 #import "PKGlobalScope.h"
 
 @interface PKSymbolTable ()
-@property (nonatomic, retain) PKGlobalScope *globals;
+@property (nonatomic, strong) PKGlobalScope *globals;
 @end
 
 @implementation PKSymbolTable
@@ -18,7 +18,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.globals = [[[PKGlobalScope alloc] init] autorelease];
+        self.globals = [[PKGlobalScope alloc] init];
     }
     return self;
 }
@@ -26,7 +26,6 @@
 
 - (void)dealloc {
     self.globals = nil;
-    [super dealloc];
 }
 
 

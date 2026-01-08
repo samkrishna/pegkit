@@ -12,7 +12,7 @@
 @interface PKBaseScope ()
 @property (nonatomic, copy, readwrite) NSString *scopeName;
 @property (nonatomic, copy, readwrite) id <PKScope>enclosingScope;
-@property (nonatomic, retain) NSMutableDictionary *symbols;
+@property (nonatomic, strong) NSMutableDictionary *symbols;
 @end
 
 @implementation PKBaseScope
@@ -30,7 +30,6 @@
     self.scopeName = nil;
     self.enclosingScope = nil;
     self.symbols = nil;
-    [super dealloc];
 }
 
 

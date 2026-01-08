@@ -5,10 +5,10 @@
 #import "CrockfordParser.h"
 
 @interface CrockfordParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) CrockfordParser *parser;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) CrockfordParser *parser;
 @end
 
 @implementation CrockfordParserTest {
@@ -27,14 +27,14 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"Crockford";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     _visitor.delegatePostMatchCallbacksOn = PGParserFactoryDelegateCallbacksOnAll;
     _visitor.enableAutomaticErrorRecovery = YES;
     _visitor.enableMemoization = NO;
     
     [_root visit:_visitor];
     
-    self.parser = [[[CrockfordParser alloc] initWithDelegate:self] autorelease];
+    self.parser = [[CrockfordParser alloc] initWithDelegate:self];
 
 #if TD_EMIT
     path = [[NSString stringWithFormat:@"%s/test/CrockfordParser.h", getenv("PWD")] stringByExpandingTildeInPath];

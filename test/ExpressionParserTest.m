@@ -5,9 +5,9 @@
 #import "ExpressionParser.h"
 
 @interface ExpressionParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
 @end
 
 @implementation ExpressionParserTest
@@ -24,7 +24,7 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"Expression";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     [_root visit:_visitor];
     
 #if TD_EMIT
@@ -49,7 +49,7 @@
 
 
 - (void)testFoo {    
-    ExpressionParser *p = [[[ExpressionParser alloc] initWithDelegate:self] autorelease];
+    ExpressionParser *p = [[ExpressionParser alloc] initWithDelegate:self];
     
     PKAssembly *res = [p parseString:@"foo.bar('hello') or bar" error:nil];
     

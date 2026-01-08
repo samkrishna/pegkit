@@ -4,8 +4,8 @@
 
 @interface NegationParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *s_memo;
-@property (nonatomic, retain) NSMutableDictionary *foo_memo;
+@property (nonatomic, strong) NSMutableDictionary *s_memo;
+@property (nonatomic, strong) NSMutableDictionary *foo_memo;
 @end
 
 @implementation NegationParser { }
@@ -30,7 +30,6 @@
     self.s_memo = nil;
     self.foo_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

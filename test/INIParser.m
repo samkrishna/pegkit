@@ -4,8 +4,8 @@
 
 @interface INIParser ()
     
-@property (nonatomic, retain) NSString *currentSectionName;
-@property (nonatomic, retain) NSMutableDictionary *sections;
+@property (nonatomic, strong) NSString *currentSectionName;
+@property (nonatomic, strong) NSMutableDictionary *sections;
 
 @end
 
@@ -48,7 +48,6 @@
     self.sections = nil;
 
 
-    [super dealloc];
 }
 
 - (void)start {

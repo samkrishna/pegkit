@@ -5,11 +5,11 @@
 #import "CreateTableStmtParser.h"
 
 @interface CreateTableStmtParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) CreateTableStmtParser *parser;
-@property (nonatomic, retain) id mock;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) CreateTableStmtParser *parser;
+@property (nonatomic, strong) id mock;
 @end
 
 @implementation CreateTableStmtParserTest
@@ -31,7 +31,6 @@
     self.visitor = nil;
     self.parser = nil;
     self.mock = nil;
-    [super dealloc];
 }
 
 
@@ -47,7 +46,7 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"CreateTableStmt";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     _visitor.enableMemoization = NO;
     
     [_root visit:_visitor];
@@ -66,7 +65,7 @@
     }
 #endif
 
-    self.parser = [[[CreateTableStmtParser alloc] initWithDelegate:_mock] autorelease];
+    self.parser = [[CreateTableStmtParser alloc] initWithDelegate:_mock];
 }
 
 - (void)tearDown {

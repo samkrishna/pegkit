@@ -4,8 +4,8 @@
 
 @interface SemanticPredicateParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *start_memo;
-@property (nonatomic, retain) NSMutableDictionary *nonReserved_memo;
+@property (nonatomic, strong) NSMutableDictionary *start_memo;
+@property (nonatomic, strong) NSMutableDictionary *nonReserved_memo;
 @end
 
 @implementation SemanticPredicateParser { }
@@ -28,7 +28,6 @@
     self.start_memo = nil;
     self.nonReserved_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

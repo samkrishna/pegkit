@@ -4,34 +4,34 @@
 
 @interface HTMLParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *start_memo;
-@property (nonatomic, retain) NSMutableDictionary *anything_memo;
-@property (nonatomic, retain) NSMutableDictionary *scriptElement_memo;
-@property (nonatomic, retain) NSMutableDictionary *scriptStartTag_memo;
-@property (nonatomic, retain) NSMutableDictionary *scriptEndTag_memo;
-@property (nonatomic, retain) NSMutableDictionary *scriptTagName_memo;
-@property (nonatomic, retain) NSMutableDictionary *scriptElementContent_memo;
-@property (nonatomic, retain) NSMutableDictionary *styleElement_memo;
-@property (nonatomic, retain) NSMutableDictionary *styleStartTag_memo;
-@property (nonatomic, retain) NSMutableDictionary *styleEndTag_memo;
-@property (nonatomic, retain) NSMutableDictionary *styleTagName_memo;
-@property (nonatomic, retain) NSMutableDictionary *styleElementContent_memo;
-@property (nonatomic, retain) NSMutableDictionary *procInstr_memo;
-@property (nonatomic, retain) NSMutableDictionary *doctype_memo;
-@property (nonatomic, retain) NSMutableDictionary *text_memo;
-@property (nonatomic, retain) NSMutableDictionary *tag_memo;
-@property (nonatomic, retain) NSMutableDictionary *emptyTag_memo;
-@property (nonatomic, retain) NSMutableDictionary *startTag_memo;
-@property (nonatomic, retain) NSMutableDictionary *endTag_memo;
-@property (nonatomic, retain) NSMutableDictionary *tagName_memo;
-@property (nonatomic, retain) NSMutableDictionary *attr_memo;
-@property (nonatomic, retain) NSMutableDictionary *attrName_memo;
-@property (nonatomic, retain) NSMutableDictionary *attrValue_memo;
-@property (nonatomic, retain) NSMutableDictionary *eq_memo;
-@property (nonatomic, retain) NSMutableDictionary *lt_memo;
-@property (nonatomic, retain) NSMutableDictionary *gt_memo;
-@property (nonatomic, retain) NSMutableDictionary *fwdSlash_memo;
-@property (nonatomic, retain) NSMutableDictionary *comment_memo;
+@property (nonatomic, strong) NSMutableDictionary *start_memo;
+@property (nonatomic, strong) NSMutableDictionary *anything_memo;
+@property (nonatomic, strong) NSMutableDictionary *scriptElement_memo;
+@property (nonatomic, strong) NSMutableDictionary *scriptStartTag_memo;
+@property (nonatomic, strong) NSMutableDictionary *scriptEndTag_memo;
+@property (nonatomic, strong) NSMutableDictionary *scriptTagName_memo;
+@property (nonatomic, strong) NSMutableDictionary *scriptElementContent_memo;
+@property (nonatomic, strong) NSMutableDictionary *styleElement_memo;
+@property (nonatomic, strong) NSMutableDictionary *styleStartTag_memo;
+@property (nonatomic, strong) NSMutableDictionary *styleEndTag_memo;
+@property (nonatomic, strong) NSMutableDictionary *styleTagName_memo;
+@property (nonatomic, strong) NSMutableDictionary *styleElementContent_memo;
+@property (nonatomic, strong) NSMutableDictionary *procInstr_memo;
+@property (nonatomic, strong) NSMutableDictionary *doctype_memo;
+@property (nonatomic, strong) NSMutableDictionary *text_memo;
+@property (nonatomic, strong) NSMutableDictionary *tag_memo;
+@property (nonatomic, strong) NSMutableDictionary *emptyTag_memo;
+@property (nonatomic, strong) NSMutableDictionary *startTag_memo;
+@property (nonatomic, strong) NSMutableDictionary *endTag_memo;
+@property (nonatomic, strong) NSMutableDictionary *tagName_memo;
+@property (nonatomic, strong) NSMutableDictionary *attr_memo;
+@property (nonatomic, strong) NSMutableDictionary *attrName_memo;
+@property (nonatomic, strong) NSMutableDictionary *attrValue_memo;
+@property (nonatomic, strong) NSMutableDictionary *eq_memo;
+@property (nonatomic, strong) NSMutableDictionary *lt_memo;
+@property (nonatomic, strong) NSMutableDictionary *gt_memo;
+@property (nonatomic, strong) NSMutableDictionary *fwdSlash_memo;
+@property (nonatomic, strong) NSMutableDictionary *comment_memo;
 @end
 
 @implementation HTMLParser { }
@@ -122,7 +122,6 @@
     self.fwdSlash_memo = nil;
     self.comment_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

@@ -4,8 +4,8 @@
 
 @interface PatternParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *start_memo;
-@property (nonatomic, retain) NSMutableDictionary *s_memo;
+@property (nonatomic, strong) NSMutableDictionary *start_memo;
+@property (nonatomic, strong) NSMutableDictionary *s_memo;
 @end
 
 @implementation PatternParser { }
@@ -28,7 +28,6 @@
     self.start_memo = nil;
     self.s_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {
@@ -59,7 +58,7 @@
     static NSRegularExpression *regex = nil;
     if (!regex) {
         NSError *err = nil;
-        regex = [[NSRegularExpression regularExpressionWithPattern:@"\\w+" options:NSRegularExpressionCaseInsensitive error:&err] retain];
+        regex = [NSRegularExpression regularExpressionWithPattern:@"\\w+" options:NSRegularExpressionCaseInsensitive error:&err];
         if (!regex) {
             if (err) NSLog(@"%@", err);
         }

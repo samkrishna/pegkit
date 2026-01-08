@@ -5,10 +5,10 @@
 #import "LabelEBNFParser.h"
 
 @interface LabelEBNFParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) LabelEBNFParser *parser;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) LabelEBNFParser *parser;
 @end
 
 @implementation LabelEBNFParserTest
@@ -25,10 +25,10 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"LabelEBNF";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     [_root visit:_visitor];
     
-    self.parser = [[[LabelEBNFParser alloc] initWithDelegate:self] autorelease];
+    self.parser = [[LabelEBNFParser alloc] initWithDelegate:self];
 
 #if TD_EMIT
     path = [[NSString stringWithFormat:@"%s/test/LabelEBNFParser.h", getenv("PWD")] stringByExpandingTildeInPath];

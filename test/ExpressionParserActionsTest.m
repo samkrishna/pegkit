@@ -5,10 +5,10 @@
 #import "ExpressionActionsParser.h"
 
 @interface ExpressionParserActionsTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) ExpressionActionsParser *parser;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) ExpressionActionsParser *parser;
 @end
 
 @implementation ExpressionParserActionsTest
@@ -25,10 +25,10 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"ExpressionActions";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     [_root visit:_visitor];
     
-    self.parser = [[[ExpressionActionsParser alloc] initWithDelegate:self] autorelease];
+    self.parser = [[ExpressionActionsParser alloc] initWithDelegate:self];
 
 #if TD_EMIT
     path = [[NSString stringWithFormat:@"%s/test/ExpressionActionsParser.h", getenv("PWD")] stringByExpandingTildeInPath];

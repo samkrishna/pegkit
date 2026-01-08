@@ -4,8 +4,8 @@
 #import "JavaScriptParser.h"
 
 @interface JSRecoveryTest : XCTestCase
-@property (nonatomic, retain) JavaScriptParser *parser;
-@property (nonatomic, retain) id mock;
+@property (nonatomic, strong) JavaScriptParser *parser;
+@property (nonatomic, strong) id mock;
 @end
 
 @implementation JSRecoveryTest
@@ -13,7 +13,6 @@
 - (void)dealloc {
     self.parser = nil;
     self.mock = nil;
-    [super dealloc];
 }
 
 - (void)parser:(PKParser *)p didMatchVar:(PKAssembly *)a {}
@@ -39,7 +38,7 @@
     self.mock = [OCMockObject mockForClass:[JSRecoveryTest class]];
     
     // return YES to -respondsToSelector:
-    [[[_mock stub] andReturnValue:OCMOCK_VALUE((BOOL){YES})] respondsToSelector:(SEL)OCMOCK_ANY];
+    [[[_mock stub] andReturnValue:OCMOCK_VALUE((BOOL){YES})] respondsToSelector:[OCMArg anySelector]];
 }
 
 - (void)tearDown {
@@ -47,7 +46,7 @@
 }
 
 - (void)testCorrectExpr {
-    self.parser = [[[JavaScriptParser alloc] initWithDelegate:_mock] autorelease];
+    self.parser = [[JavaScriptParser alloc] initWithDelegate:_mock];
 
     NSError *err = nil;
     PKAssembly *res = nil;
@@ -73,7 +72,7 @@
 }
 
 - (void)testBorkedVarMissingSemi {
-    self.parser = [[[JavaScriptParser alloc] initWithDelegate:_mock] autorelease];
+    self.parser = [[JavaScriptParser alloc] initWithDelegate:_mock];
 
     NSError *err = nil;
     PKAssembly *res = nil;
@@ -107,7 +106,7 @@
 }
 
 - (void)testMissingVarIdentifier {
-    self.parser = [[[JavaScriptParser alloc] initWithDelegate:_mock] autorelease];
+    self.parser = [[JavaScriptParser alloc] initWithDelegate:_mock];
 
     NSError *err = nil;
     PKAssembly *res = nil;
@@ -143,7 +142,7 @@
 }
 
 - (void)testBorkedFunc1 {
-    self.parser = [[[JavaScriptParser alloc] initWithDelegate:_mock] autorelease];
+    self.parser = [[JavaScriptParser alloc] initWithDelegate:_mock];
     _parser.preserveWhitespace = YES;
 
     NSError *err = nil;
@@ -177,7 +176,7 @@
 }
 
 - (void)testBorkedFunc2 {
-    self.parser = [[[JavaScriptParser alloc] initWithDelegate:_mock] autorelease];
+    self.parser = [[JavaScriptParser alloc] initWithDelegate:_mock];
     _parser.preserveWhitespace = YES;
 
     NSError *err = nil;

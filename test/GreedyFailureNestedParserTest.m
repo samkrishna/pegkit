@@ -5,11 +5,11 @@
 #import "GreedyFailureNestedParser.h"
 
 @interface GreedyFailureNestedParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) GreedyFailureNestedParser *parser;
-@property (nonatomic, retain) id mock;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) GreedyFailureNestedParser *parser;
+@property (nonatomic, strong) id mock;
 @end
 
 @implementation GreedyFailureNestedParserTest
@@ -31,7 +31,6 @@
     self.visitor = nil;
     self.parser = nil;
     self.mock = nil;
-    [super dealloc];
 }
 
 
@@ -47,7 +46,7 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"GreedyFailureNested";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     _visitor.delegatePostMatchCallbacksOn = PGParserFactoryDelegateCallbacksOnAll;
     _visitor.enableAutomaticErrorRecovery = YES;
     _visitor.enableMemoization = NO;
@@ -70,11 +69,11 @@
 
     self.mock = [OCMockObject mockForClass:[GreedyFailureNestedParserTest class]];
 
-    self.parser = [[[GreedyFailureNestedParser alloc] initWithDelegate:_mock] autorelease];
+    self.parser = [[GreedyFailureNestedParser alloc] initWithDelegate:_mock];
     _parser.enableAutomaticErrorRecovery = YES;
     
     // return YES to -respondsToSelector:
-    [[[_mock stub] andReturnValue:OCMOCK_VALUE((BOOL){YES})] respondsToSelector:(SEL)OCMOCK_ANY];
+    [[[_mock stub] andReturnValue:OCMOCK_VALUE((BOOL){YES})] respondsToSelector:[OCMArg anySelector]];
 }
 
 - (void)tearDown {

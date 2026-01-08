@@ -15,7 +15,7 @@ static LinesParser *parser;
 @implementation LinesParserTest
 
 + (void)setUp {
-    factory = [[PGParserFactory factory] retain];
+    factory = [PGParserFactory factory];
     factory.collectTokenKinds = YES;
 
     NSError *err = nil;
@@ -23,7 +23,7 @@ static LinesParser *parser;
     NSString *g = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&err];
     
     err = nil;
-    root = [(id)[factory ASTFromGrammar:g error:&err] retain];
+    root = (id)[factory ASTFromGrammar:g error:&err];
     root.grammarName = @"Lines";
     
     visitor = [[PGParserGenVisitor alloc] init];
@@ -49,10 +49,6 @@ static LinesParser *parser;
 }
 
 + (void)tearDown {
-    [factory release];
-    [root release];
-    [visitor release];
-    [parser release];
 }
 
 - (void)test0 {

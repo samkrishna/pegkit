@@ -21,9 +21,9 @@
 - (id)initWithName:(NSString *)name type:(id <PKType>)type;
 
 @property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, retain) id <PKType>type;
+@property (nonatomic, strong) id <PKType>type;
 
 // Forward Reference Support
-@property (nonatomic, retain) PKDefinitionNode *def;
-@property (nonatomic, retain) id <PKScope>scope;
+@property (nonatomic, strong) PKDefinitionNode *def;
+@property (nonatomic, strong) id <PKScope>scope;
 @end

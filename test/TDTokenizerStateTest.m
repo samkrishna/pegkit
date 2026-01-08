@@ -16,7 +16,6 @@
 
 
 - (void)tearDown {
-    [t release];
 }
 
 

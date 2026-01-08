@@ -5,9 +5,9 @@
 #import "ElementAssignParser.h"
 
 @interface ElementAssignParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
 @end
 
 @implementation ElementAssignParserTest
@@ -24,7 +24,7 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"ElementAssign";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     _visitor.enableMemoization = NO;
     _visitor.enableAutomaticErrorRecovery = YES;
     
@@ -52,7 +52,7 @@
 
 
 //- (void)testFoo {
-//    ElementAssignParser *p = [[[ElementAssignParser alloc] initWithDelegate:self] autorelease];
+//    ElementAssignParser *p = [[ElementAssignParser alloc] initWithDelegate:self];
 //    
 //    PKAssembly *res = [p parse:@"[1, [2,3],4]" error:nil];
 //    
@@ -70,7 +70,7 @@
 
 
 - (void)testAssign {
-    ElementAssignParser *p = [[[ElementAssignParser alloc] initWithDelegate:self] autorelease];
+    ElementAssignParser *p = [[ElementAssignParser alloc] initWithDelegate:self];
     
     PKAssembly *res = [p parseString:@"[1]=[2]." error:nil];
     

@@ -24,8 +24,6 @@
 
 
 - (void)tearDown {
-    [numberState release];
-    [r release];
 }
 
 

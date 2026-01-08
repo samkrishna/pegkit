@@ -16,8 +16,6 @@
 
 
 - (void)tearDown {
-    [whitespaceState release];
-    [r release];
 }
 
 

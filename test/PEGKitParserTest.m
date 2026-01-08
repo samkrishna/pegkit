@@ -5,10 +5,10 @@
 #import "PEGKitParser.h"
 
 @interface PEGKitParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) PEGKitParser *parser;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) PEGKitParser *parser;
 @end
 
 @implementation PEGKitParserTest
@@ -25,14 +25,14 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"PEGKit";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     _visitor.enableMemoization = NO;
     _visitor.enableHybridDFA = YES;
     _visitor.enableAutomaticErrorRecovery = NO;
     _visitor.enableARC = NO;
     [_root visit:_visitor];
     
-    self.parser = [[[PEGKitParser alloc] initWithDelegate:self] autorelease];
+    self.parser = [[PEGKitParser alloc] initWithDelegate:self];
 
 #if TD_EMIT
     path = [[NSString stringWithFormat:@"%s/ParserGenApp/PEGKitParser.h", getenv("PWD")] stringByExpandingTildeInPath];

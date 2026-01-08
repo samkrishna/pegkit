@@ -4,10 +4,10 @@
 
 @interface OptionalParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *s_memo;
-@property (nonatomic, retain) NSMutableDictionary *expr_memo;
-@property (nonatomic, retain) NSMutableDictionary *foo_memo;
-@property (nonatomic, retain) NSMutableDictionary *bar_memo;
+@property (nonatomic, strong) NSMutableDictionary *s_memo;
+@property (nonatomic, strong) NSMutableDictionary *expr_memo;
+@property (nonatomic, strong) NSMutableDictionary *foo_memo;
+@property (nonatomic, strong) NSMutableDictionary *bar_memo;
 @end
 
 @implementation OptionalParser { }
@@ -38,7 +38,6 @@
     self.foo_memo = nil;
     self.bar_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

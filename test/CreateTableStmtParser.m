@@ -38,7 +38,6 @@
 - (void)dealloc {
     
 
-    [super dealloc];
 }
 
 - (void)start {

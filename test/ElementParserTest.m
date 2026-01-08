@@ -5,9 +5,9 @@
 #import "ElementParser.h"
 
 @interface ElementParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
 @end
 
 @implementation ElementParserTest
@@ -24,7 +24,7 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"Element";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     _visitor.enableMemoization = YES;
     [_root visit:_visitor];
 
@@ -50,7 +50,7 @@
 
 
 - (void)testFoo {    
-    ElementParser *p = [[[ElementParser alloc] initWithDelegate:self] autorelease];
+    ElementParser *p = [[ElementParser alloc] initWithDelegate:self];
     
     NSError *err = nil;
     PKAssembly *res = [p parseString:@"[1, [2,3],4]" error:&err];

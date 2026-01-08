@@ -4,44 +4,44 @@
 
 @interface CSSParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *stylesheet_memo;
-@property (nonatomic, retain) NSMutableDictionary *ruleset_memo;
-@property (nonatomic, retain) NSMutableDictionary *selectors_memo;
-@property (nonatomic, retain) NSMutableDictionary *selector_memo;
-@property (nonatomic, retain) NSMutableDictionary *selectorWord_memo;
-@property (nonatomic, retain) NSMutableDictionary *selectorQuotedString_memo;
-@property (nonatomic, retain) NSMutableDictionary *commaSelector_memo;
-@property (nonatomic, retain) NSMutableDictionary *decls_memo;
-@property (nonatomic, retain) NSMutableDictionary *actualDecls_memo;
-@property (nonatomic, retain) NSMutableDictionary *decl_memo;
-@property (nonatomic, retain) NSMutableDictionary *property_memo;
-@property (nonatomic, retain) NSMutableDictionary *expr_memo;
-@property (nonatomic, retain) NSMutableDictionary *url_memo;
-@property (nonatomic, retain) NSMutableDictionary *urlLower_memo;
-@property (nonatomic, retain) NSMutableDictionary *urlUpper_memo;
-@property (nonatomic, retain) NSMutableDictionary *nonTerminatingSymbol_memo;
-@property (nonatomic, retain) NSMutableDictionary *important_memo;
-@property (nonatomic, retain) NSMutableDictionary *string_memo;
-@property (nonatomic, retain) NSMutableDictionary *constant_memo;
-@property (nonatomic, retain) NSMutableDictionary *openCurly_memo;
-@property (nonatomic, retain) NSMutableDictionary *closeCurly_memo;
-@property (nonatomic, retain) NSMutableDictionary *openBracket_memo;
-@property (nonatomic, retain) NSMutableDictionary *closeBracket_memo;
-@property (nonatomic, retain) NSMutableDictionary *eq_memo;
-@property (nonatomic, retain) NSMutableDictionary *comma_memo;
-@property (nonatomic, retain) NSMutableDictionary *colon_memo;
-@property (nonatomic, retain) NSMutableDictionary *semi_memo;
-@property (nonatomic, retain) NSMutableDictionary *openParen_memo;
-@property (nonatomic, retain) NSMutableDictionary *closeParen_memo;
-@property (nonatomic, retain) NSMutableDictionary *gt_memo;
-@property (nonatomic, retain) NSMutableDictionary *tilde_memo;
-@property (nonatomic, retain) NSMutableDictionary *pipe_memo;
-@property (nonatomic, retain) NSMutableDictionary *fwdSlash_memo;
-@property (nonatomic, retain) NSMutableDictionary *hash_memo;
-@property (nonatomic, retain) NSMutableDictionary *dot_memo;
-@property (nonatomic, retain) NSMutableDictionary *at_memo;
-@property (nonatomic, retain) NSMutableDictionary *bang_memo;
-@property (nonatomic, retain) NSMutableDictionary *num_memo;
+@property (nonatomic, strong) NSMutableDictionary *stylesheet_memo;
+@property (nonatomic, strong) NSMutableDictionary *ruleset_memo;
+@property (nonatomic, strong) NSMutableDictionary *selectors_memo;
+@property (nonatomic, strong) NSMutableDictionary *selector_memo;
+@property (nonatomic, strong) NSMutableDictionary *selectorWord_memo;
+@property (nonatomic, strong) NSMutableDictionary *selectorQuotedString_memo;
+@property (nonatomic, strong) NSMutableDictionary *commaSelector_memo;
+@property (nonatomic, strong) NSMutableDictionary *decls_memo;
+@property (nonatomic, strong) NSMutableDictionary *actualDecls_memo;
+@property (nonatomic, strong) NSMutableDictionary *decl_memo;
+@property (nonatomic, strong) NSMutableDictionary *property_memo;
+@property (nonatomic, strong) NSMutableDictionary *expr_memo;
+@property (nonatomic, strong) NSMutableDictionary *url_memo;
+@property (nonatomic, strong) NSMutableDictionary *urlLower_memo;
+@property (nonatomic, strong) NSMutableDictionary *urlUpper_memo;
+@property (nonatomic, strong) NSMutableDictionary *nonTerminatingSymbol_memo;
+@property (nonatomic, strong) NSMutableDictionary *important_memo;
+@property (nonatomic, strong) NSMutableDictionary *string_memo;
+@property (nonatomic, strong) NSMutableDictionary *constant_memo;
+@property (nonatomic, strong) NSMutableDictionary *openCurly_memo;
+@property (nonatomic, strong) NSMutableDictionary *closeCurly_memo;
+@property (nonatomic, strong) NSMutableDictionary *openBracket_memo;
+@property (nonatomic, strong) NSMutableDictionary *closeBracket_memo;
+@property (nonatomic, strong) NSMutableDictionary *eq_memo;
+@property (nonatomic, strong) NSMutableDictionary *comma_memo;
+@property (nonatomic, strong) NSMutableDictionary *colon_memo;
+@property (nonatomic, strong) NSMutableDictionary *semi_memo;
+@property (nonatomic, strong) NSMutableDictionary *openParen_memo;
+@property (nonatomic, strong) NSMutableDictionary *closeParen_memo;
+@property (nonatomic, strong) NSMutableDictionary *gt_memo;
+@property (nonatomic, strong) NSMutableDictionary *tilde_memo;
+@property (nonatomic, strong) NSMutableDictionary *pipe_memo;
+@property (nonatomic, strong) NSMutableDictionary *fwdSlash_memo;
+@property (nonatomic, strong) NSMutableDictionary *hash_memo;
+@property (nonatomic, strong) NSMutableDictionary *dot_memo;
+@property (nonatomic, strong) NSMutableDictionary *at_memo;
+@property (nonatomic, strong) NSMutableDictionary *bang_memo;
+@property (nonatomic, strong) NSMutableDictionary *num_memo;
 @end
 
 @implementation CSSParser { }
@@ -176,7 +176,6 @@
     self.bang_memo = nil;
     self.num_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

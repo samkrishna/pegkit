@@ -4,36 +4,36 @@
 
 @interface ExpressionParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *expr_memo;
-@property (nonatomic, retain) NSMutableDictionary *orExpr_memo;
-@property (nonatomic, retain) NSMutableDictionary *orTerm_memo;
-@property (nonatomic, retain) NSMutableDictionary *andExpr_memo;
-@property (nonatomic, retain) NSMutableDictionary *andTerm_memo;
-@property (nonatomic, retain) NSMutableDictionary *relExpr_memo;
-@property (nonatomic, retain) NSMutableDictionary *relOp_memo;
-@property (nonatomic, retain) NSMutableDictionary *callExpr_memo;
-@property (nonatomic, retain) NSMutableDictionary *argList_memo;
-@property (nonatomic, retain) NSMutableDictionary *primary_memo;
-@property (nonatomic, retain) NSMutableDictionary *atom_memo;
-@property (nonatomic, retain) NSMutableDictionary *obj_memo;
-@property (nonatomic, retain) NSMutableDictionary *id_memo;
-@property (nonatomic, retain) NSMutableDictionary *member_memo;
-@property (nonatomic, retain) NSMutableDictionary *literal_memo;
-@property (nonatomic, retain) NSMutableDictionary *bool_memo;
-@property (nonatomic, retain) NSMutableDictionary *lt_memo;
-@property (nonatomic, retain) NSMutableDictionary *gt_memo;
-@property (nonatomic, retain) NSMutableDictionary *eq_memo;
-@property (nonatomic, retain) NSMutableDictionary *ne_memo;
-@property (nonatomic, retain) NSMutableDictionary *le_memo;
-@property (nonatomic, retain) NSMutableDictionary *ge_memo;
-@property (nonatomic, retain) NSMutableDictionary *openParen_memo;
-@property (nonatomic, retain) NSMutableDictionary *closeParen_memo;
-@property (nonatomic, retain) NSMutableDictionary *yes_memo;
-@property (nonatomic, retain) NSMutableDictionary *no_memo;
-@property (nonatomic, retain) NSMutableDictionary *dot_memo;
-@property (nonatomic, retain) NSMutableDictionary *comma_memo;
-@property (nonatomic, retain) NSMutableDictionary *or_memo;
-@property (nonatomic, retain) NSMutableDictionary *and_memo;
+@property (nonatomic, strong) NSMutableDictionary *expr_memo;
+@property (nonatomic, strong) NSMutableDictionary *orExpr_memo;
+@property (nonatomic, strong) NSMutableDictionary *orTerm_memo;
+@property (nonatomic, strong) NSMutableDictionary *andExpr_memo;
+@property (nonatomic, strong) NSMutableDictionary *andTerm_memo;
+@property (nonatomic, strong) NSMutableDictionary *relExpr_memo;
+@property (nonatomic, strong) NSMutableDictionary *relOp_memo;
+@property (nonatomic, strong) NSMutableDictionary *callExpr_memo;
+@property (nonatomic, strong) NSMutableDictionary *argList_memo;
+@property (nonatomic, strong) NSMutableDictionary *primary_memo;
+@property (nonatomic, strong) NSMutableDictionary *atom_memo;
+@property (nonatomic, strong) NSMutableDictionary *obj_memo;
+@property (nonatomic, strong) NSMutableDictionary *id_memo;
+@property (nonatomic, strong) NSMutableDictionary *member_memo;
+@property (nonatomic, strong) NSMutableDictionary *literal_memo;
+@property (nonatomic, strong) NSMutableDictionary *bool_memo;
+@property (nonatomic, strong) NSMutableDictionary *lt_memo;
+@property (nonatomic, strong) NSMutableDictionary *gt_memo;
+@property (nonatomic, strong) NSMutableDictionary *eq_memo;
+@property (nonatomic, strong) NSMutableDictionary *ne_memo;
+@property (nonatomic, strong) NSMutableDictionary *le_memo;
+@property (nonatomic, strong) NSMutableDictionary *ge_memo;
+@property (nonatomic, strong) NSMutableDictionary *openParen_memo;
+@property (nonatomic, strong) NSMutableDictionary *closeParen_memo;
+@property (nonatomic, strong) NSMutableDictionary *yes_memo;
+@property (nonatomic, strong) NSMutableDictionary *no_memo;
+@property (nonatomic, strong) NSMutableDictionary *dot_memo;
+@property (nonatomic, strong) NSMutableDictionary *comma_memo;
+@property (nonatomic, strong) NSMutableDictionary *or_memo;
+@property (nonatomic, strong) NSMutableDictionary *and_memo;
 @end
 
 @implementation ExpressionParser { }
@@ -140,7 +140,6 @@
     self.or_memo = nil;
     self.and_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

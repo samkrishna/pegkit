@@ -4,10 +4,10 @@
 
 @interface MultipleParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *s_memo;
-@property (nonatomic, retain) NSMutableDictionary *ab_memo;
-@property (nonatomic, retain) NSMutableDictionary *a_memo;
-@property (nonatomic, retain) NSMutableDictionary *b_memo;
+@property (nonatomic, strong) NSMutableDictionary *s_memo;
+@property (nonatomic, strong) NSMutableDictionary *ab_memo;
+@property (nonatomic, strong) NSMutableDictionary *a_memo;
+@property (nonatomic, strong) NSMutableDictionary *b_memo;
 @end
 
 @implementation MultipleParser { }
@@ -38,7 +38,6 @@
     self.a_memo = nil;
     self.b_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

@@ -5,10 +5,10 @@
 #import "QuoteSymbolParser.h"
 
 @interface QuoteSymbolParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) QuoteSymbolParser *parser;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) QuoteSymbolParser *parser;
 @end
 
 @implementation QuoteSymbolParserTest
@@ -18,7 +18,6 @@
     self.root = nil;
     self.visitor = nil;
     self.parser = nil;
-    [super dealloc];
 }
 
 
@@ -34,7 +33,7 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"QuoteSymbol";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     _visitor.enableMemoization = NO;
     
     [_root visit:_visitor];
@@ -53,7 +52,7 @@
     }
 #endif
 
-    self.parser = [[[QuoteSymbolParser alloc] initWithDelegate:nil] autorelease];
+    self.parser = [[QuoteSymbolParser alloc] initWithDelegate:nil];
 }
 
 - (void)tearDown {

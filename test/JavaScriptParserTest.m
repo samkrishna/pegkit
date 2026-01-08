@@ -5,10 +5,10 @@
 #import "JavaScriptParser.h"
 
 @interface JavaScriptParserTest : XCTestCase
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
-@property (nonatomic, retain) JavaScriptParser *parser;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) JavaScriptParser *parser;
 @end
 
 @implementation JavaScriptParserTest {
@@ -27,14 +27,14 @@
     self.root = (id)[_factory ASTFromGrammar:g error:&err];
     _root.grammarName = @"JavaScript";
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     _visitor.delegatePostMatchCallbacksOn = PGParserFactoryDelegateCallbacksOnAll;
     _visitor.enableAutomaticErrorRecovery = YES;
     _visitor.enableMemoization = NO;
     
     [_root visit:_visitor];
     
-    self.parser = [[[JavaScriptParser alloc] initWithDelegate:self] autorelease];
+    self.parser = [[JavaScriptParser alloc] initWithDelegate:self];
 
 #if TD_EMIT
     path = [[NSString stringWithFormat:@"%s/test/JavaScriptParser.h", getenv("PWD")] stringByExpandingTildeInPath];

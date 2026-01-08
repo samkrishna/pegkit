@@ -4,8 +4,8 @@
 
 @interface DotQuestionParser ()
 
-@property (nonatomic, retain) NSMutableDictionary *start_memo;
-@property (nonatomic, retain) NSMutableDictionary *a_memo;
+@property (nonatomic, strong) NSMutableDictionary *start_memo;
+@property (nonatomic, strong) NSMutableDictionary *a_memo;
 @end
 
 @implementation DotQuestionParser { }
@@ -30,7 +30,6 @@
     self.start_memo = nil;
     self.a_memo = nil;
 
-    [super dealloc];
 }
 
 - (void)clearMemo {

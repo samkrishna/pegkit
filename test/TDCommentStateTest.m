@@ -20,8 +20,6 @@
 
 
 - (void)tearDown {
-    [r release];
-    [t release];
 }
 
 
