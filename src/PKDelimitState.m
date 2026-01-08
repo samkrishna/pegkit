@@ -50,8 +50,8 @@
 @end
 
 @interface PKDelimitState ()
-@property (nonatomic, retain) PKSymbolRootNode *rootNode;
-@property (nonatomic, retain) PKDelimitDescriptorCollection *collection;
+@property (nonatomic, strong) PKSymbolRootNode *rootNode;
+@property (nonatomic, strong) PKDelimitDescriptorCollection *collection;
 @end
 
 @implementation PKDelimitState
@@ -59,18 +59,11 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.rootNode = [[[PKSymbolRootNode alloc] init] autorelease];
+        self.rootNode = [[PKSymbolRootNode alloc] init];
         _rootNode.reportsAddedSymbolsOnly = YES;
-        self.collection = [[[PKDelimitDescriptorCollection alloc] init] autorelease];
+        self.collection = [[PKDelimitDescriptorCollection alloc] init];
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.rootNode = nil;
-    self.collection = nil;
-    [super dealloc];
 }
 
 
@@ -101,7 +94,7 @@
     
     // check for false match
     if ([startMarker length]) {
-        matchingDescs = [[[_collection descriptorsForStartMarker:startMarker] mutableCopy] autorelease];
+        matchingDescs = [[_collection descriptorsForStartMarker:startMarker] mutableCopy];
         
         if (![matchingDescs count]) {
             [r unread:[startMarker length] - 1];
@@ -117,7 +110,7 @@
     NSUInteger stackCount = 0;
     
     // setup a temp root node with current start and end markers
-    PKSymbolRootNode *currRootNode = [[[PKSymbolRootNode alloc] init] autorelease];
+    PKSymbolRootNode *currRootNode = [[PKSymbolRootNode alloc] init];
     currRootNode.reportsAddedSymbolsOnly = YES;
     
     for (PKDelimitDescriptor *desc in matchingDescs) {
@@ -151,7 +144,7 @@
         
         if (PKEOF == c) {
             if (!_balancesEOFTerminatedStrings) {
-                for (PKDelimitDescriptor *desc in [[matchingDescs copy] autorelease]) {
+                for (PKDelimitDescriptor *desc in [matchingDescs copy]) {
                     if ([desc.endMarker length]) {
                         [matchingDescs removeObject:desc];
                     }
@@ -184,7 +177,7 @@
             }
         }
         
-        for (PKDelimitDescriptor *desc in [[matchingDescs copy] autorelease]) {
+        for (PKDelimitDescriptor *desc in [matchingDescs copy]) {
             if (desc.characterSet && ![desc.characterSet characterIsMember:c]) {
                 if ([desc.endMarker length]) {
                     [matchingDescs removeObject:desc];
