@@ -25,7 +25,7 @@
 @class PGTokenKindDescriptor;
 
 @interface PGDelimitedNode : PGBaseNode
-@property (nonatomic, retain) NSString *startMarker;
-@property (nonatomic, retain) NSString *endMarker;
-@property (nonatomic, retain) PGTokenKindDescriptor *tokenKind;
+@property (nonatomic, strong) NSString *startMarker;
+@property (nonatomic, strong) NSString *endMarker;
+@property (nonatomic, strong) PGTokenKindDescriptor *tokenKind;
 @end

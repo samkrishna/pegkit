@@ -21,22 +21,15 @@
 // THE SOFTWARE.
 
 #import "PGDelimitedNode.h"
+#import "PGTokenKindDescriptor.h"
 
 @implementation PGDelimitedNode
 
-- (void)dealloc {
-    self.startMarker = nil;
-    self.endMarker = nil;
-    self.tokenKind = nil;
-    [super dealloc];
-}
-
-
 - (id)copyWithZone:(NSZone *)zone {
     PGDelimitedNode *that = (PGDelimitedNode *)[super copyWithZone:zone];
-    that->_startMarker = [_startMarker retain];
-    that->_endMarker = [_endMarker retain];
-    that->_tokenKind = [_tokenKind retain];
+    that->_startMarker = [_startMarker copy];
+    that->_endMarker = [_endMarker copy];
+    that->_tokenKind = [_tokenKind copy];
     return that;
 }
 
@@ -76,7 +69,7 @@
     // TODO add charset
     
     [mstr appendString:@"}"];
-    return [[mstr copy] autorelease];
+    return [mstr copy];
 }
 
 
