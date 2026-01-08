@@ -24,8 +24,8 @@
 
 @interface PGRootNode : PGBaseNode
 
-@property (nonatomic, retain) NSString *grammarName;
-@property (nonatomic, retain) NSString *startMethodName;
-@property (nonatomic, retain) NSMutableArray *tokenKinds;
-@property (nonatomic, retain) NSMutableDictionary *grammarActions;
+@property (nonatomic, strong) NSString *grammarName;
+@property (nonatomic, strong) NSString *startMethodName;
+@property (nonatomic, strong) NSMutableArray *tokenKinds;
+@property (nonatomic, strong) NSMutableDictionary *grammarActions;
 @end

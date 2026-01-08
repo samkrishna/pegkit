@@ -33,15 +33,6 @@
 }
 
 
-- (void)dealloc {
-    self.grammarName = nil;
-    self.startMethodName = nil;
-    self.tokenKinds = nil;
-    self.grammarActions = nil;
-    [super dealloc];
-}
-
-
 - (NSUInteger)type {
     return PGNodeTypeRoot;
 }
