@@ -54,9 +54,9 @@ typedef NS_ENUM(NSUInteger, PGNodeType) {
 @property (nonatomic, assign, readonly) BOOL isTerminal;
 
 @property (nonatomic, assign) BOOL discard;
-@property (nonatomic, retain) PGActionNode *actionNode;
-@property (nonatomic, retain) PGActionNode *semanticPredicateNode;
-@property (nonatomic, retain) PGActionNode *before;
-@property (nonatomic, retain) PGActionNode *after;
-@property (nonatomic, retain) NSString *defName;
+@property (nonatomic, strong) PGActionNode *actionNode;
+@property (nonatomic, strong) PGActionNode *semanticPredicateNode;
+@property (nonatomic, strong) PGActionNode *before;
+@property (nonatomic, strong) PGActionNode *after;
+@property (nonatomic, strong) NSString *defName;
 @end

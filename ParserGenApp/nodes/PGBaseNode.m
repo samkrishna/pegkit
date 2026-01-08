@@ -21,32 +21,23 @@
 // THE SOFTWARE.
 
 #import "PGBaseNode.h"
+#import "PGActionNode.h"
 
 @implementation PGBaseNode
 
 + (instancetype)nodeWithToken:(PKToken *)tok {
-    return [[[self alloc] initWithToken:tok] autorelease];
-}
-
-
-- (void)dealloc {
-    self.actionNode = nil;
-    self.semanticPredicateNode = nil;
-    self.defName = nil;
-    self.before = nil;
-    self.after = nil;
-    [super dealloc];
+    return [[self alloc] initWithToken:tok];
 }
 
 
 - (id)copyWithZone:(NSZone *)zone {
     PGBaseNode *that = (PGBaseNode *)[super copyWithZone:zone];
     that->_discard = _discard;
-    that->_actionNode = [_actionNode retain];
-    that->_semanticPredicateNode = [_semanticPredicateNode retain];
-    that->_defName = [_defName retain];
-    that->_before = [_before retain];
-    that->_after = [_after retain];
+    that->_actionNode = [_actionNode copy];
+    that->_semanticPredicateNode = [_semanticPredicateNode copy];
+    that->_defName = [_defName copy];
+    that->_before = [_before copy];
+    that->_after = [_after copy];
     return that;
 }
 
