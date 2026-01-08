@@ -39,13 +39,6 @@
 
 @implementation PGBaseVisitor
 
-- (void)dealloc {
-    self.rootNode = nil;
-    self.symbolTable = nil;
-    [super dealloc];
-}
-
-
 - (void)recurse:(PGBaseNode *)node {
     for (PGBaseNode *child in node.children) {
         [child visit:self];

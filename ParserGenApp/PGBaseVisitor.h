@@ -44,6 +44,6 @@
 
 - (void)recurse:(PGBaseNode *)node;
 
-@property (nonatomic, retain) PGBaseNode *rootNode;
-@property (nonatomic, retain) NSMutableDictionary *symbolTable;
+@property (nonatomic, strong) PGBaseNode *rootNode;
+@property (nonatomic, strong) NSMutableDictionary *symbolTable;
 @end
