@@ -190,7 +190,7 @@
 		D31BBCBD18E4AAE20003FFA3 /* TableIndexParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCBC18E4AAE20003FFA3 /* TableIndexParserTest.m */; };
 		D31BBCC018E4AAFC0003FFA3 /* TableIndexParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCBF18E4AAFC0003FFA3 /* TableIndexParser.m */; };
 		D31BBCC118E4B4430003FFA3 /* PGElseEmptyTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = D31BBCB618E482C60003FFA3 /* PGElseEmptyTemplate.txt */; };
-		D31BBCED18E4F1EF0003FFA3 /* TDReaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCD318E4F1EF0003FFA3 /* TDReaderTest.m */; };
+		D31BBCED18E4F1EF0003FFA3 /* TDReaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCD318E4F1EF0003FFA3 /* TDReaderTest.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D31BBCF018E4F1EF0003FFA3 /* TDTokenizerBlocksTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCD918E4F1EF0003FFA3 /* TDTokenizerBlocksTest.m */; };
 		D31BBCF118E4F1EF0003FFA3 /* TDTokenizerStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCDB18E4F1EF0003FFA3 /* TDTokenizerStateTest.m */; };
 		D31BBCF218E4F1EF0003FFA3 /* TDTokenizerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D31BBCDD18E4F1EF0003FFA3 /* TDTokenizerTest.m */; };

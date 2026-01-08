@@ -11,14 +11,11 @@
 
 - (void)setUp {
     string = @"abcdefghijklmnopqrstuvwxyz";
-    [string retain];
     reader = [[PKReader alloc] initWithString:string];
 }
 
 
 - (void)tearDown {
-    [string release];
-    [reader release];
 }
 
 

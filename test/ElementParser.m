@@ -39,19 +39,6 @@
     return self;
 }
 
-- (void)dealloc {
-    
-    self.lists_memo = nil;
-    self.list_memo = nil;
-    self.elements_memo = nil;
-    self.element_memo = nil;
-    self.lbracket_memo = nil;
-    self.rbracket_memo = nil;
-    self.comma_memo = nil;
-
-    [super dealloc];
-}
-
 - (void)clearMemo {
     [_lists_memo removeAllObjects];
     [_list_memo removeAllObjects];
