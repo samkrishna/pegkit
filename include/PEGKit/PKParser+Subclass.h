@@ -89,16 +89,16 @@
 
 - (NSMutableArray *)reversedArray:(NSArray *)a;
 
-@property (nonatomic, retain) NSMutableDictionary *tokenKindTab;
-@property (nonatomic, retain) NSMutableArray *tokenKindNameTab;
-@property (nonatomic, retain) NSString *startRuleName;
-@property (nonatomic, retain) NSString *statementTerminator;
-@property (nonatomic, retain) NSString *singleLineCommentMarker;
-@property (nonatomic, retain) NSString *multiLineCommentStartMarker;
-@property (nonatomic, retain) NSString *multiLineCommentEndMarker;
-@property (nonatomic, retain) NSString *blockStartMarker;
-@property (nonatomic, retain) NSString *blockEndMarker;
-@property (nonatomic, retain) NSString *braces;
+@property (nonatomic, strong) NSMutableDictionary *tokenKindTab;
+@property (nonatomic, strong) NSMutableArray *tokenKindNameTab;
+@property (nonatomic, strong) NSString *startRuleName;
+@property (nonatomic, strong) NSString *statementTerminator;
+@property (nonatomic, strong) NSString *singleLineCommentMarker;
+@property (nonatomic, strong) NSString *multiLineCommentStartMarker;
+@property (nonatomic, strong) NSString *multiLineCommentEndMarker;
+@property (nonatomic, strong) NSString *blockStartMarker;
+@property (nonatomic, strong) NSString *blockEndMarker;
+@property (nonatomic, strong) NSString *braces;
 @end
 
 #define LT(i) [self LT:(i)]

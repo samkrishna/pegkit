@@ -74,7 +74,7 @@
     @property   stream
     @brief      Alternative to using `string`. Support for streaming input.
 */
-@property (nonatomic, retain) NSInputStream *stream;
+@property (nonatomic, strong) NSInputStream *stream;
 
 /*!
     @property   offset
