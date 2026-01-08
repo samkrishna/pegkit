@@ -44,8 +44,8 @@
 - (PKToken *)symbolTokenWith:(PKUniChar)cin tokenizer:(PKTokenizer *)t;
 - (PKToken *)symbolTokenWithSymbol:(NSString *)s;
 
-@property (nonatomic, retain) PKSymbolRootNode *rootNode;
-@property (nonatomic, retain) NSMutableSet *addedSymbols;
+@property (nonatomic, strong) PKSymbolRootNode *rootNode;
+@property (nonatomic, strong) NSMutableSet *addedSymbols;
 @end
 
 @implementation PKSymbolState {
@@ -55,7 +55,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.rootNode = [[[PKSymbolRootNode alloc] init] autorelease];
+        self.rootNode = [[PKSymbolRootNode alloc] init];
         self.addedSymbols = [NSMutableSet set];
         _prevented = (void *)calloc(128, sizeof(BOOL));
     }
@@ -64,12 +64,9 @@
 
 
 - (void)dealloc {
-    self.rootNode = nil;
-    self.addedSymbols = nil;
     if (_prevented) {
         free(_prevented);
     }
-    [super dealloc];
 }
 
 
