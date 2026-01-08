@@ -329,8 +329,8 @@
 		D376F6DA18D0B3990064C888 /* PGReferenceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6BE18D0B3990064C888 /* PGReferenceNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D376F6DB18D0B3990064C888 /* PGRootNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6C018D0B3990064C888 /* PGRootNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D376F6DC18D0B3990064C888 /* PGRootNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6C018D0B3990064C888 /* PGRootNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D376F6DE18D0B5020064C888 /* PGParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6DD18D0B5020064C888 /* PGParserFactory.m */; };
-		D376F6DF18D0B5020064C888 /* PGParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6DD18D0B5020064C888 /* PGParserFactory.m */; };
+		D376F6DE18D0B5020064C888 /* PGParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6DD18D0B5020064C888 /* PGParserFactory.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D376F6DF18D0B5020064C888 /* PGParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6DD18D0B5020064C888 /* PGParserFactory.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D376F6E218D0B5090064C888 /* PEGKitParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E118D0B5090064C888 /* PEGKitParser.m */; };
 		D376F6E318D0B5090064C888 /* PEGKitParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E118D0B5090064C888 /* PEGKitParser.m */; };
 		D376F6ED18D0B5190064C888 /* PGBaseVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E518D0B5190064C888 /* PGBaseVisitor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };

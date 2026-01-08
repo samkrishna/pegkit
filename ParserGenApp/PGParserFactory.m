@@ -76,45 +76,45 @@
 - (void)parser:(PKParser *)p didMatchOrTerm:(PKAssembly *)a;
 - (void)parser:(PKParser *)p didMatchNegatedPrimaryExpr:(PKAssembly *)a;
 
-@property (nonatomic, retain) PEGKitParser *grammarParser;
-@property (nonatomic, retain) NSMutableDictionary *directiveTab;
+@property (nonatomic, strong) PEGKitParser *grammarParser;
+@property (nonatomic, strong) NSMutableDictionary *directiveTab;
 
-@property (nonatomic, retain) PGRootNode *rootNode;
+@property (nonatomic, strong) PGRootNode *rootNode;
 @property (nonatomic, assign) BOOL wantsCharacters;
-@property (nonatomic, retain) PKToken *equals;
-@property (nonatomic, retain) PKToken *curly;
-@property (nonatomic, retain) PKToken *paren;
-@property (nonatomic, retain) PKToken *square;
+@property (nonatomic, strong) PKToken *equals;
+@property (nonatomic, strong) PKToken *curly;
+@property (nonatomic, strong) PKToken *paren;
+@property (nonatomic, strong) PKToken *square;
 
-@property (nonatomic, retain) PKToken *rootToken;
-@property (nonatomic, retain) PKToken *defToken;
-@property (nonatomic, retain) PKToken *refToken;
-@property (nonatomic, retain) PKToken *seqToken;
-@property (nonatomic, retain) PKToken *orToken;
-@property (nonatomic, retain) PKToken *trackToken;
-@property (nonatomic, retain) PKToken *diffToken;
-@property (nonatomic, retain) PKToken *intToken;
-@property (nonatomic, retain) PKToken *optToken;
-@property (nonatomic, retain) PKToken *multiToken;
-@property (nonatomic, retain) PKToken *repToken;
-@property (nonatomic, retain) PKToken *cardToken;
-@property (nonatomic, retain) PKToken *negToken;
-@property (nonatomic, retain) PKToken *litToken;
-@property (nonatomic, retain) PKToken *delimToken;
-@property (nonatomic, retain) PKToken *predicateToken;
+@property (nonatomic, strong) PKToken *rootToken;
+@property (nonatomic, strong) PKToken *defToken;
+@property (nonatomic, strong) PKToken *refToken;
+@property (nonatomic, strong) PKToken *seqToken;
+@property (nonatomic, strong) PKToken *orToken;
+@property (nonatomic, strong) PKToken *trackToken;
+@property (nonatomic, strong) PKToken *diffToken;
+@property (nonatomic, strong) PKToken *intToken;
+@property (nonatomic, strong) PKToken *optToken;
+@property (nonatomic, strong) PKToken *multiToken;
+@property (nonatomic, strong) PKToken *repToken;
+@property (nonatomic, strong) PKToken *cardToken;
+@property (nonatomic, strong) PKToken *negToken;
+@property (nonatomic, strong) PKToken *litToken;
+@property (nonatomic, strong) PKToken *delimToken;
+@property (nonatomic, strong) PKToken *predicateToken;
 @end
 
 @implementation PGParserFactory
 
 + (PGParserFactory *)factory {
-    return [[[PGParserFactory alloc] init] autorelease];
+    return [[PGParserFactory alloc] init];
 }
 
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.grammarParser = [[[PEGKitParser alloc] initWithDelegate:self] autorelease];
+        self.grammarParser = [[PEGKitParser alloc] initWithDelegate:self];
         
         self.equals     = [PKToken tokenWithTokenType:PKTokenTypeSymbol stringValue:@"=" doubleValue:0.0];
         self.curly      = [PKToken tokenWithTokenType:PKTokenTypeSymbol stringValue:@"{" doubleValue:0.0];
@@ -144,33 +144,6 @@
 }
 
 
-- (void)dealloc {
-    self.grammarParser = nil;
-    self.directiveTab = nil;
-    self.rootNode = nil;
-    self.equals = nil;
-    self.curly = nil;
-    self.paren = nil;
-    self.square = nil;
-    self.rootToken = nil;
-    self.defToken = nil;
-    self.refToken = nil;
-    self.seqToken = nil;
-    self.orToken = nil;
-    self.diffToken = nil;
-    self.intToken = nil;
-    self.optToken = nil;
-    self.multiToken = nil;
-    self.repToken = nil;
-    self.cardToken = nil;
-    self.negToken = nil;
-    self.litToken = nil;
-    self.delimToken = nil;
-    self.predicateToken = nil;
-    [super dealloc];
-}
-
-
 - (PKAST *)ASTFromGrammar:(NSString *)g error:(NSError **)outError {
     NSMutableDictionary *symTab = [NSMutableDictionary dictionary];
     return [self ASTFromGrammar:g symbolTable:symTab error:outError];
@@ -188,7 +161,7 @@
 //    _grammarParser.parser.tokenizer = t;
 //    [_grammarParser.parser parse:g error:outError];
         
-    PGDefinitionPhaseVisitor *defv = [[[PGDefinitionPhaseVisitor alloc] init] autorelease];
+    PGDefinitionPhaseVisitor *defv = [[PGDefinitionPhaseVisitor alloc] init];
     defv.symbolTable = symTab;
     defv.delegatePostMatchCallbacksOn = self.delegatePostMatchCallbacksOn;
     defv.collectTokenKinds = self.collectTokenKinds;
@@ -684,7 +657,7 @@
 - (void)parser:(PKParser *)p didMatchOrTerm:(PKAssembly *)a {
     //NSLog(@"%@ %@", NSStringFromSelector(_cmd), a);
 
-    NSMutableArray *rhsNodes = [[[a objectsAbove:_orToken] mutableCopy] autorelease];
+    NSMutableArray *rhsNodes = [[a objectsAbove:_orToken] mutableCopy];
     
     PKToken *orTok = [a pop]; // pop '|'
     NSAssert([orTok isKindOfClass:[PKToken class]], @"");
