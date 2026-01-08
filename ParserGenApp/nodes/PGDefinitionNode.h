@@ -24,5 +24,5 @@
 
 @interface PGDefinitionNode : PGBaseNode
 
-@property (nonatomic, retain) NSString *callbackName;
+@property (nonatomic, strong) NSString *callbackName;
 @end

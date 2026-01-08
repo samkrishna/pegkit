@@ -313,8 +313,8 @@
 		D376F6CA18D0B3990064C888 /* PGCompositeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6AE18D0B3990064C888 /* PGCompositeNode.m */; };
 		D376F6CB18D0B3990064C888 /* PGConstantNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6B018D0B3990064C888 /* PGConstantNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D376F6CC18D0B3990064C888 /* PGConstantNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6B018D0B3990064C888 /* PGConstantNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D376F6CD18D0B3990064C888 /* PGDefinitionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6B218D0B3990064C888 /* PGDefinitionNode.m */; };
-		D376F6CE18D0B3990064C888 /* PGDefinitionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6B218D0B3990064C888 /* PGDefinitionNode.m */; };
+		D376F6CD18D0B3990064C888 /* PGDefinitionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6B218D0B3990064C888 /* PGDefinitionNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D376F6CE18D0B3990064C888 /* PGDefinitionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6B218D0B3990064C888 /* PGDefinitionNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D376F6CF18D0B3990064C888 /* PGDelimitedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6B418D0B3990064C888 /* PGDelimitedNode.m */; };
 		D376F6D018D0B3990064C888 /* PGDelimitedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6B418D0B3990064C888 /* PGDelimitedNode.m */; };
 		D376F6D118D0B3990064C888 /* PGLiteralNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6B618D0B3990064C888 /* PGLiteralNode.m */; };

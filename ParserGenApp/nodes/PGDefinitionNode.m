@@ -25,15 +25,9 @@
 
 @implementation PGDefinitionNode
 
-- (void)dealloc {
-    self.callbackName = nil;
-    [super dealloc];
-}
-
-
 - (id)copyWithZone:(NSZone *)zone {
     PGDefinitionNode *that = (PGDefinitionNode *)[super copyWithZone:zone];
-    that->_callbackName = [_callbackName copyWithZone:zone];
+    that->_callbackName = [_callbackName copy];
     return that;
 }
 
