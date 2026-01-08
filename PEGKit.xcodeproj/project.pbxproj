@@ -63,7 +63,7 @@
 		D30502CD1CE557D300AB4B68 /* PKSymbolNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAF240FF9DF9900D7773A /* PKSymbolNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D30502CE1CE557D300AB4B68 /* PKSymbolRootNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAF260FF9DF9900D7773A /* PKSymbolRootNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D30502CF1CE557D300AB4B68 /* PKAST.m in Sources */ = {isa = PBXBuildFile; fileRef = D375DAC2173C645C00A5E050 /* PKAST.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D30502D01CE557D300AB4B68 /* NSArray+PEGKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAFD40FF9E95500D7773A /* NSArray+PEGKitAdditions.m */; };
+		D30502D01CE557D300AB4B68 /* NSArray+PEGKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAFD40FF9E95500D7773A /* NSArray+PEGKitAdditions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D30502D11CE557D300AB4B68 /* NSString+PEGKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAFD60FF9E95500D7773A /* NSString+PEGKitAdditions.m */; };
 		D306298218E1ED5D00EF745E /* TDTestScaffold.m in Sources */ = {isa = PBXBuildFile; fileRef = D306298118E1ED5D00EF745E /* TDTestScaffold.m */; };
 		D3083AB61705F05C00DA6F95 /* elementsAssign.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D3083AB51705F05C00DA6F95 /* elementsAssign.grammar */; };
@@ -144,7 +144,7 @@
 		D317C11F18D1F49F0036BE75 /* PKSymbolNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAF240FF9DF9900D7773A /* PKSymbolNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C12018D1F49F0036BE75 /* PKSymbolRootNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAF260FF9DF9900D7773A /* PKSymbolRootNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C12118D1F49F0036BE75 /* PKAST.m in Sources */ = {isa = PBXBuildFile; fileRef = D375DAC2173C645C00A5E050 /* PKAST.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D317C12218D1F49F0036BE75 /* NSArray+PEGKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAFD40FF9E95500D7773A /* NSArray+PEGKitAdditions.m */; };
+		D317C12218D1F49F0036BE75 /* NSArray+PEGKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAFD40FF9E95500D7773A /* NSArray+PEGKitAdditions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C12318D1F49F0036BE75 /* NSString+PEGKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAFD60FF9E95500D7773A /* NSString+PEGKitAdditions.m */; };
 		D317C12418D1F4A10036BE75 /* PKHashtagState.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F23201453841100A98014 /* PKHashtagState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C12518D1F4A20036BE75 /* PKHashtagState.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F23201453841100A98014 /* PKHashtagState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -173,7 +173,7 @@
 		D317C18018D1F6550036BE75 /* PKSymbolNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAF240FF9DF9900D7773A /* PKSymbolNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C18118D1F6550036BE75 /* PKSymbolRootNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAF260FF9DF9900D7773A /* PKSymbolRootNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C18218D1F6550036BE75 /* PKAST.m in Sources */ = {isa = PBXBuildFile; fileRef = D375DAC2173C645C00A5E050 /* PKAST.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D317C18318D1F6550036BE75 /* NSArray+PEGKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAFD40FF9E95500D7773A /* NSArray+PEGKitAdditions.m */; };
+		D317C18318D1F6550036BE75 /* NSArray+PEGKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAFD40FF9E95500D7773A /* NSArray+PEGKitAdditions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C18418D1F6550036BE75 /* NSString+PEGKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAFD60FF9E95500D7773A /* NSString+PEGKitAdditions.m */; };
 		D317C18F18D1F9230036BE75 /* PKSymbolNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D317C18D18D1F9230036BE75 /* PKSymbolNode.h */; };
 		D317C19018D1F9230036BE75 /* PKSymbolRootNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D317C18E18D1F9230036BE75 /* PKSymbolRootNode.h */; };
@@ -472,7 +472,7 @@
 		D3F8A44E175817DF00056188 /* PKWordState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAED60FF9D56400D7773A /* PKWordState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D3F8A44F175817DF00056188 /* PKSymbolNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAF240FF9DF9900D7773A /* PKSymbolNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D3F8A450175817DF00056188 /* PKSymbolRootNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAF260FF9DF9900D7773A /* PKSymbolRootNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D3F8A460175817DF00056188 /* NSArray+PEGKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAFD40FF9E95500D7773A /* NSArray+PEGKitAdditions.m */; };
+		D3F8A460175817DF00056188 /* NSArray+PEGKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAFD40FF9E95500D7773A /* NSArray+PEGKitAdditions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D3F8A461175817DF00056188 /* NSString+PEGKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAFD60FF9E95500D7773A /* NSString+PEGKitAdditions.m */; };
 		D3F8A464175817DF00056188 /* PKEmailState.m in Sources */ = {isa = PBXBuildFile; fileRef = D35F4A8511643630003811F3 /* PKEmailState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D3F8A465175817DF00056188 /* PKURLState.m in Sources */ = {isa = PBXBuildFile; fileRef = D35F4A8611643630003811F3 /* PKURLState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };

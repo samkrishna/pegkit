@@ -25,7 +25,7 @@
 @implementation NSArray (PEGKitAdditions)
 
 - (NSArray *)reversedArray {
-    return [[[self reversedMutableArray] copy] autorelease];
+    return [[self reversedMutableArray] copy];
 }
 
 
