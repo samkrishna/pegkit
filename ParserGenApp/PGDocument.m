@@ -215,22 +215,29 @@
 
 
 - (void)generateWithDestinationPath:(NSString *)destPath parserName:(NSString *)parserName grammar:(NSString *)grammar {
+    void (^finish)(void) = ^{
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self done];
+        });
+    };
+
     NSError *err = nil;
     self.root = (id)[_factory ASTFromGrammar:_grammar error:&err];
     if (err) {
         self.error = err;
-        goto done;
+        finish();
+        return;
     }
-    
+
     NSAssert([_root.startMethodName length], @"");
     NSString *className = self.parserName;
     NSAssert([className length], @"");
     if (![className hasSuffix:@"Parser"]) {
         className = [NSString stringWithFormat:@"%@Parser", className];
     }
-    
+
     _root.grammarName = self.parserName;
-    
+
     self.visitor = [[PGParserGenVisitor alloc] init];
     _visitor.enableARC = _enableARC;
     _visitor.enableHybridDFA = _enableHybridDFA; //NSAssert(_enableHybridDFA, @"");
@@ -238,17 +245,18 @@
     _visitor.enableAutomaticErrorRecovery = _enableAutomaticErrorRecovery;
     _visitor.delegatePreMatchCallbacksOn = _delegatePreMatchCallbacksOn;
     _visitor.delegatePostMatchCallbacksOn = _delegatePostMatchCallbacksOn;
-    
+
     @try {
         [_root visit:_visitor];
     }
     @catch (NSException *ex) {
         id userInfo = @{NSLocalizedFailureReasonErrorKey: [ex reason]};
-        NSError *err = [NSError errorWithDomain:[ex name] code:0 userInfo:userInfo];
-        self.error = err;
-        goto done;
+        NSError *exErr = [NSError errorWithDomain:[ex name] code:0 userInfo:userInfo];
+        self.error = exErr;
+        finish();
+        return;
     }
-    
+
     NSString *path = [[NSString stringWithFormat:@"%@/%@.h", destPath, className] stringByExpandingTildeInPath];
     err = nil;
     if (![_visitor.interfaceOutputString writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&err]) {
@@ -257,9 +265,10 @@
         id dict = [NSMutableDictionary dictionaryWithDictionary:[err userInfo]];
         dict[NSLocalizedFailureReasonErrorKey] = str;
         self.error = [NSError errorWithDomain:[err domain] code:[err code] userInfo:dict];
-        goto done;
+        finish();
+        return;
     }
-    
+
     path = [[NSString stringWithFormat:@"%@/%@.m", destPath, className] stringByExpandingTildeInPath];
     err = nil;
     if (![_visitor.implementationOutputString writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&err]) {
@@ -268,13 +277,11 @@
         id dict = [NSMutableDictionary dictionaryWithDictionary:[err userInfo]];
         dict[NSLocalizedFailureReasonErrorKey] = str;
         self.error = [NSError errorWithDomain:[err domain] code:[err code] userInfo:dict];
-        goto done;
+        finish();
+        return;
     }
-    
-done:
-    dispatch_async(dispatch_get_main_queue(), ^(void){
-        [self done];
-    });
+
+    finish();
 }
 
 
