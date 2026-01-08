@@ -175,5 +175,5 @@
 #endif
 
 @property (nonatomic, readonly) NSUInteger lineNumber;
-@property (nonatomic, assign) id <PKTokenizerDelegate>delegate;
+@property (nonatomic, weak) id <PKTokenizerDelegate>delegate;
 @end
