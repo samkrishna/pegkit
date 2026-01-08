@@ -41,7 +41,7 @@
 @end
 
 @interface PKCommentState ()
-@property (nonatomic, retain) PKSymbolRootNode *rootNode;
+@property (nonatomic, strong) PKSymbolRootNode *rootNode;
 @end
 
 @interface PKMultiLineCommentState ()

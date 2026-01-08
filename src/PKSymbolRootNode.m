@@ -24,7 +24,7 @@
 #import "PKSymbolRootNode.h"
 
 @interface PKSymbolNode ()
-@property (nonatomic, retain) NSMutableDictionary *children;
+@property (nonatomic, strong) NSMutableDictionary *children;
 @end
 
 @interface PKSymbolRootNode ()
