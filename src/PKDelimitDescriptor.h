@@ -26,7 +26,7 @@
 
 + (PKDelimitDescriptor *)descriptorWithStartMarker:(NSString *)start endMarker:(NSString *)end characterSet:(NSCharacterSet *)cs;
 
-@property (nonatomic, retain) NSString *startMarker;
-@property (nonatomic, retain) NSString *endMarker;
-@property (nonatomic, retain) NSCharacterSet *characterSet;
+@property (nonatomic, strong) NSString *startMarker;
+@property (nonatomic, strong) NSString *endMarker;
+@property (nonatomic, strong) NSCharacterSet *characterSet;
 @end

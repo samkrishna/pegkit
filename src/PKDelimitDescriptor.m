@@ -25,7 +25,7 @@
 @implementation PKDelimitDescriptor
 
 + (PKDelimitDescriptor *)descriptorWithStartMarker:(NSString *)start endMarker:(NSString *)end characterSet:(NSCharacterSet *)cs {
-    PKDelimitDescriptor *desc = [[[[self class] alloc] init] autorelease];
+    PKDelimitDescriptor *desc = [[[self class] alloc] init];
     desc.startMarker = start;
     desc.endMarker = end;
     desc.characterSet = cs;
@@ -33,19 +33,11 @@
 }
 
 
-- (void)dealloc {
-    self.startMarker = nil;
-    self.endMarker = nil;
-    self.characterSet = nil;
-    [super dealloc];
-}
-
-
 - (id)copyWithZone:(NSZone *)zone {
-    PKDelimitDescriptor *desc = NSAllocateObject([self class], 0, zone);
-    desc->_startMarker = [_startMarker retain];
-    desc->_endMarker = [_endMarker retain];
-    desc->_characterSet = [_characterSet retain];
+    PKDelimitDescriptor *desc = [[[self class] allocWithZone:zone] init];
+    desc->_startMarker = [_startMarker copy];
+    desc->_endMarker = [_endMarker copy];
+    desc->_characterSet = [_characterSet copy];
     return desc;
 }
 
