@@ -32,7 +32,7 @@
 @property (nonatomic, copy) NSString *parserName;
 @property (nonatomic, copy) NSString *grammar;
 @property (nonatomic, assign) BOOL busy;
-@property (nonatomic, retain) NSError *error;
+@property (nonatomic, strong) NSError *error;
 
 @property (nonatomic, assign) BOOL enableARC;
 @property (nonatomic, assign) BOOL enableHybridDFA;
@@ -41,5 +41,5 @@
 @property (nonatomic, assign) NSInteger delegatePreMatchCallbacksOn;
 @property (nonatomic, assign) NSInteger delegatePostMatchCallbacksOn;
 
-@property (nonatomic, retain) IBOutlet NSTextView *textView;
+@property (nonatomic, strong) IBOutlet NSTextView *textView;
 @end

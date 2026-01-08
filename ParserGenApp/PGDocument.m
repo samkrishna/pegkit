@@ -25,9 +25,9 @@
 #import "PGParserGenVisitor.h"
 
 @interface PGDocument ()
-@property (nonatomic, retain) PGParserFactory *factory;
-@property (nonatomic, retain) PGRootNode *root;
-@property (nonatomic, retain) PGParserGenVisitor *visitor;
+@property (nonatomic, strong) PGParserFactory *factory;
+@property (nonatomic, strong) PGRootNode *root;
+@property (nonatomic, strong) PGParserGenVisitor *visitor;
 @end
 
 @implementation PGDocument
@@ -53,20 +53,6 @@
         self.grammar = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.destinationPath = nil;
-    self.parserName = nil;
-    self.grammar = nil;
-    
-    self.textView = nil;
-    
-    self.factory = nil;
-    self.root = nil;
-    self.visitor = nil;
-    [super dealloc];
 }
 
 
@@ -146,9 +132,9 @@
 #pragma mark Actions
 
 - (IBAction)generate:(id)sender {
-    NSString *destPath = [[_destinationPath copy] autorelease];
-    NSString *parserName = [[_parserName copy] autorelease];
-    NSString *grammar = [[_grammar copy] autorelease];
+    NSString *destPath = [_destinationPath copy];
+    NSString *parserName = [_parserName copy];
+    NSString *grammar = [_grammar copy];
     
     if (![destPath length] || ![parserName length] || ![grammar length]) {
         NSBeep();
@@ -245,7 +231,7 @@
     
     _root.grammarName = self.parserName;
     
-    self.visitor = [[[PGParserGenVisitor alloc] init] autorelease];
+    self.visitor = [[PGParserGenVisitor alloc] init];
     _visitor.enableARC = _enableARC;
     _visitor.enableHybridDFA = _enableHybridDFA; //NSAssert(_enableHybridDFA, @"");
     _visitor.enableMemoization = _enableMemoization;
@@ -316,7 +302,7 @@ done:
     NSString *msg = [error localizedFailureReason];
     NSString *defaultButton = NSLocalizedString(@"OK", @"");
     
-    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+    NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = title;
     alert.informativeText = msg;
     [alert addButtonWithTitle:defaultButton];

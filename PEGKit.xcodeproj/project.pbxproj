@@ -215,7 +215,7 @@
 		D338303C171C923700CCE513 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D338303A171C923700CCE513 /* InfoPlist.strings */; };
 		D338303E171C923700CCE513 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D338303D171C923700CCE513 /* main.m */; };
 		D3383042171C923700CCE513 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D3383040171C923700CCE513 /* Credits.rtf */; };
-		D3383045171C923700CCE513 /* PGDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D3383044171C923700CCE513 /* PGDocument.m */; };
+		D3383045171C923700CCE513 /* PGDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D3383044171C923700CCE513 /* PGDocument.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D3383048171C923700CCE513 /* PGDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3383046171C923700CCE513 /* PGDocument.xib */; };
 		D338304B171C923700CCE513 /* PGMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3383049171C923700CCE513 /* PGMainMenu.xib */; };
 		D3383052171CA2DC00CCE513 /* expression.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D3B986AD1700D3A9000CBCAE /* expression.grammar */; };
