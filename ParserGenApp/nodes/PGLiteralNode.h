@@ -27,5 +27,5 @@
 @interface PGLiteralNode : PGBaseNode
 
 @property (nonatomic, assign) BOOL wantsCharacters;
-@property (nonatomic, retain) PGTokenKindDescriptor *tokenKind;
+@property (nonatomic, strong) PGTokenKindDescriptor *tokenKind;
 @end

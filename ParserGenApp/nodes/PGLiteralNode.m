@@ -24,12 +24,6 @@
 
 @implementation PGLiteralNode
 
-- (void)dealloc {
-    self.tokenKind = nil;
-    [super dealloc];
-}
-
-
 - (NSUInteger)type {
     return PGNodeTypeLiteral;
 }
