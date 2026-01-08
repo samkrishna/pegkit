@@ -25,11 +25,6 @@
 
 @implementation PGReferenceNode
 
-- (void)dealloc {
-    [super dealloc];
-}
-
-
 - (NSUInteger)type {
     return PGNodeTypeReference;
 }
