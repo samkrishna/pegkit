@@ -64,9 +64,9 @@ enum {
 - (id)parseStream:(NSInputStream *)input error:(NSError **)outErr;
 - (id)parseTokens:(NSArray *)input error:(NSError **)outErr;
 
-@property (nonatomic, assign, readonly) id delegate; // weak ref
-@property (nonatomic, retain) PKTokenizer *tokenizer;
-@property (nonatomic, retain) PKAssembly *assembly;
+@property (nonatomic, weak, readonly) id delegate; // weak ref
+@property (nonatomic, strong) PKTokenizer *tokenizer;
+@property (nonatomic, strong) PKAssembly *assembly;
 
 @property (nonatomic, assign) BOOL silentlyConsumesWhitespace; // default NO
 @property (nonatomic, assign) BOOL enableActions; // default YES

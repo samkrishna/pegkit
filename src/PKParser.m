@@ -51,7 +51,7 @@ NSString * const PEGKitRecognitionPredicateFailed = @"Predicate failed";
 @end
 
 @interface PKParser ()
-@property (nonatomic, assign, readwrite) id delegate;
+@property (nonatomic, weak, readwrite) id delegate;
 @property (nonatomic, strong) PKRecognitionException *exception;
 @property (nonatomic, strong) NSMutableArray *lookahead;
 @property (nonatomic, strong) NSMutableArray *markers;
