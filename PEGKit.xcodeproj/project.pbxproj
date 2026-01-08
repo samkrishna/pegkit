@@ -51,7 +51,7 @@
 		D30502C11CE557D300AB4B68 /* PKWordState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAED60FF9D56400D7773A /* PKWordState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D30502C21CE557D300AB4B68 /* PKWhitespaceState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAED20FF9D56400D7773A /* PKWhitespaceState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D30502C31CE557D300AB4B68 /* PKDelimitState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAEC60FF9D56400D7773A /* PKDelimitState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D30502C41CE557D300AB4B68 /* PKDelimitDescriptorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D33724E916FA635700D30459 /* PKDelimitDescriptorCollection.m */; };
+		D30502C41CE557D300AB4B68 /* PKDelimitDescriptorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D33724E916FA635700D30459 /* PKDelimitDescriptorCollection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D30502C51CE557D300AB4B68 /* PKDelimitDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D33724D916FA62D400D30459 /* PKDelimitDescriptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D30502C61CE557D300AB4B68 /* PKCommentState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAEC40FF9D56400D7773A /* PKCommentState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D30502C71CE557D300AB4B68 /* PKSingleLineCommentState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAECE0FF9D56400D7773A /* PKSingleLineCommentState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -133,7 +133,7 @@
 		D317C11418D1F49F0036BE75 /* PKWordState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAED60FF9D56400D7773A /* PKWordState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C11518D1F49F0036BE75 /* PKWhitespaceState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAED20FF9D56400D7773A /* PKWhitespaceState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C11618D1F49F0036BE75 /* PKDelimitState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAEC60FF9D56400D7773A /* PKDelimitState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D317C11718D1F49F0036BE75 /* PKDelimitDescriptorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D33724E916FA635700D30459 /* PKDelimitDescriptorCollection.m */; };
+		D317C11718D1F49F0036BE75 /* PKDelimitDescriptorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D33724E916FA635700D30459 /* PKDelimitDescriptorCollection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C11818D1F49F0036BE75 /* PKDelimitDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D33724D916FA62D400D30459 /* PKDelimitDescriptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C11918D1F49F0036BE75 /* PKCommentState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAEC40FF9D56400D7773A /* PKCommentState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C11A18D1F49F0036BE75 /* PKSingleLineCommentState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAECE0FF9D56400D7773A /* PKSingleLineCommentState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -161,7 +161,7 @@
 		D317C17418D1F6550036BE75 /* PKWordState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAED60FF9D56400D7773A /* PKWordState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C17518D1F6550036BE75 /* PKWhitespaceState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAED20FF9D56400D7773A /* PKWhitespaceState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C17618D1F6550036BE75 /* PKDelimitState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAEC60FF9D56400D7773A /* PKDelimitState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D317C17718D1F6550036BE75 /* PKDelimitDescriptorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D33724E916FA635700D30459 /* PKDelimitDescriptorCollection.m */; };
+		D317C17718D1F6550036BE75 /* PKDelimitDescriptorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D33724E916FA635700D30459 /* PKDelimitDescriptorCollection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C17818D1F6550036BE75 /* PKDelimitDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D33724D916FA62D400D30459 /* PKDelimitDescriptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C17918D1F6550036BE75 /* PKCommentState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAEC40FF9D56400D7773A /* PKCommentState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D317C17A18D1F6550036BE75 /* PKSingleLineCommentState.m in Sources */ = {isa = PBXBuildFile; fileRef = D34BAECE0FF9D56400D7773A /* PKSingleLineCommentState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -478,7 +478,7 @@
 		D3F8A465175817DF00056188 /* PKURLState.m in Sources */ = {isa = PBXBuildFile; fileRef = D35F4A8611643630003811F3 /* PKURLState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D3F8A466175817DF00056188 /* PKTwitterState.m in Sources */ = {isa = PBXBuildFile; fileRef = D33DC1971165634F004CE58C /* PKTwitterState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D3F8A46D175817DF00056188 /* PKDelimitDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D33724D916FA62D400D30459 /* PKDelimitDescriptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D3F8A46E175817DF00056188 /* PKDelimitDescriptorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D33724E916FA635700D30459 /* PKDelimitDescriptorCollection.m */; };
+		D3F8A46E175817DF00056188 /* PKDelimitDescriptorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D33724E916FA635700D30459 /* PKDelimitDescriptorCollection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D3F8A470175817DF00056188 /* PKParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3382F9A171C80EB00CCE513 /* PKParser.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D3F8A472175817DF00056188 /* PKRecognitionException.m in Sources */ = {isa = PBXBuildFile; fileRef = D3382FD6171C8C9100CCE513 /* PKRecognitionException.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D3F8A485175817DF00056188 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3BD3A74172DC75600FC6549 /* InfoPlist.strings */; };

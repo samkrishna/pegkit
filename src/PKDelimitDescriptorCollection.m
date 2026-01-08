@@ -24,7 +24,7 @@
 #import "PKDelimitDescriptor.h"
 
 @interface PKDelimitDescriptorCollection ()
-@property (nonatomic, retain) NSMutableDictionary *descTab;
+@property (nonatomic, strong) NSMutableDictionary *descTab;
 @end
 
 @implementation PKDelimitDescriptorCollection
@@ -35,12 +35,6 @@
         self.descTab = [NSMutableDictionary dictionary];
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.descTab = nil;
-    [super dealloc];
 }
 
 
