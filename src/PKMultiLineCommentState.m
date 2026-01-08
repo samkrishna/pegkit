@@ -47,8 +47,8 @@
 @interface PKMultiLineCommentState ()
 - (void)addStartMarker:(NSString *)start endMarker:(NSString *)end;
 - (void)removeStartMarker:(NSString *)start;
-@property (nonatomic, retain) NSMutableArray *startMarkers;
-@property (nonatomic, retain) NSMutableArray *endMarkers;
+@property (nonatomic, strong) NSMutableArray *startMarkers;
+@property (nonatomic, strong) NSMutableArray *endMarkers;
 @property (nonatomic, copy) NSString *currentStartMarker;
 @end
 
@@ -61,14 +61,6 @@
         self.endMarkers = [NSMutableArray array];
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.startMarkers = nil;
-    self.endMarkers = nil;
-    self.currentStartMarker = nil;
-    [super dealloc];
 }
 
 
