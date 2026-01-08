@@ -42,7 +42,7 @@
     @property   ancestry
     @brief      The string of the mulit-character symbol this node represents.
 */
-@property (nonatomic, readonly, retain) NSString *ancestry;
+@property (nonatomic, readonly, strong) NSString *ancestry;
 
 /*!
     @brief      If YES, -nextSymbol:startingWith: returns only explicitly-added symbols.

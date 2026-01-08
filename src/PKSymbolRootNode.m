@@ -61,10 +61,10 @@
 
 - (void)addWithFirst:(PKUniChar)c rest:(NSString *)s parent:(PKSymbolNode *)p {
     NSParameterAssert(p);
-    NSString *key = [[[NSString alloc] initWithCharacters:(const unichar *)&c length:1] autorelease];
+    NSString *key = [[NSString alloc] initWithCharacters:(const unichar *)&c length:1];
     PKSymbolNode *child = [p.children objectForKey:key];
     if (!child) {
-        child = [[[PKSymbolNode alloc] initWithParent:p character:c] autorelease];
+        child = [[PKSymbolNode alloc] initWithParent:p character:c];
         child.reportsAddedSymbolsOnly = self.reportsAddedSymbolsOnly;
         [p.children setObject:child forKey:key];
     }
@@ -85,7 +85,7 @@
 
 - (void)removeWithFirst:(PKUniChar)c rest:(NSString *)s parent:(PKSymbolNode *)p {
     NSParameterAssert(p);
-    NSString *key = [[[NSString alloc] initWithCharacters:(const unichar *)&c length:1] autorelease];
+    NSString *key = [[NSString alloc] initWithCharacters:(const unichar *)&c length:1];
     PKSymbolNode *child = [p.children objectForKey:key];
     if (child) {
         NSString *rest = nil;
@@ -111,7 +111,7 @@
 
 - (NSString *)nextWithFirst:(PKUniChar)c rest:(PKReader *)r parent:(PKSymbolNode *)p {
     NSParameterAssert(p);
-    NSString *result = [[[NSString alloc] initWithCharacters:(const unichar *)&c length:1] autorelease];
+    NSString *result = [[NSString alloc] initWithCharacters:(const unichar *)&c length:1];
     
     PKSymbolNode *child = [p.children objectForKey:result];
     

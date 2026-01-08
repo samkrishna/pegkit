@@ -24,11 +24,11 @@
 #import "PKSymbolRootNode.h"
 
 @interface PKSymbolNode ()
-@property (nonatomic, retain, readwrite) NSString *ancestry;
-@property (nonatomic, assign) PKSymbolNode *parent;  // this must be 'assign' to avoid retain loop leak
-@property (nonatomic, retain) NSMutableDictionary *children;
+@property (nonatomic, strong, readwrite) NSString *ancestry;
+@property (nonatomic, weak) PKSymbolNode *parent;  // this must be 'weak' to avoid retain loop leak
+@property (nonatomic, strong) NSMutableDictionary *children;
 @property (nonatomic, assign) PKUniChar character;
-@property (nonatomic, retain) NSString *string;
+@property (nonatomic, strong) NSString *string;
 
 - (void)determineAncestry;
 @end
@@ -49,15 +49,6 @@
         [self determineAncestry];
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.parent = nil;
-    self.ancestry = nil;
-    self.string = nil;
-    self.children = nil;
-    [super dealloc];
 }
 
 
