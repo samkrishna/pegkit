@@ -27,11 +27,6 @@
     return self;
 }
 
-- (void)dealloc {
-    
-
-}
-
 - (void)start {
 
     [self tryAndRecover:TOKEN_KIND_BUILTIN_EOF block:^{

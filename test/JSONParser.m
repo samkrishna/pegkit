@@ -37,11 +37,6 @@
     return self;
 }
 
-- (void)dealloc {
-    
-
-}
-
 - (void)start {
 
     [self start_]; 

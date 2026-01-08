@@ -35,11 +35,6 @@
     return self;
 }
 
-- (void)dealloc {
-    
-
-}
-
 - (void)start {
 
     [self createTableStmt_]; 

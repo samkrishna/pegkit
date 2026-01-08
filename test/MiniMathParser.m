@@ -33,15 +33,6 @@
     return self;
 }
 
-- (void)dealloc {
-    
-    self.expr_memo = nil;
-    self.mult_memo = nil;
-    self.pow_memo = nil;
-    self.atom_memo = nil;
-
-}
-
 - (void)clearMemo {
     [_expr_memo removeAllObjects];
     [_mult_memo removeAllObjects];

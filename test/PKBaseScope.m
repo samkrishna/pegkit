@@ -26,12 +26,6 @@
 }
 
 
-- (void)dealloc {
-    self.scopeName = nil;
-    self.enclosingScope = nil;
-    self.symbols = nil;
-}
-
 
 - (void)define:(PKBaseSymbol *)sym {
     NSParameterAssert(sym);

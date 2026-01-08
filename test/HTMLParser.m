@@ -91,39 +91,6 @@
     return self;
 }
 
-- (void)dealloc {
-    
-    self.start_memo = nil;
-    self.anything_memo = nil;
-    self.scriptElement_memo = nil;
-    self.scriptStartTag_memo = nil;
-    self.scriptEndTag_memo = nil;
-    self.scriptTagName_memo = nil;
-    self.scriptElementContent_memo = nil;
-    self.styleElement_memo = nil;
-    self.styleStartTag_memo = nil;
-    self.styleEndTag_memo = nil;
-    self.styleTagName_memo = nil;
-    self.styleElementContent_memo = nil;
-    self.procInstr_memo = nil;
-    self.doctype_memo = nil;
-    self.text_memo = nil;
-    self.tag_memo = nil;
-    self.emptyTag_memo = nil;
-    self.startTag_memo = nil;
-    self.endTag_memo = nil;
-    self.tagName_memo = nil;
-    self.attr_memo = nil;
-    self.attrName_memo = nil;
-    self.attrValue_memo = nil;
-    self.eq_memo = nil;
-    self.lt_memo = nil;
-    self.gt_memo = nil;
-    self.fwdSlash_memo = nil;
-    self.comment_memo = nil;
-
-}
-
 - (void)clearMemo {
     [_start_memo removeAllObjects];
     [_anything_memo removeAllObjects];

@@ -42,14 +42,6 @@
     return self;
 }
 
-- (void)dealloc {
-        
-    self.currentSectionName = nil;
-    self.sections = nil;
-
-
-}
-
 - (void)start {
     [self execute:^{
     

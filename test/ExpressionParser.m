@@ -107,41 +107,6 @@
     return self;
 }
 
-- (void)dealloc {
-    
-    self.expr_memo = nil;
-    self.orExpr_memo = nil;
-    self.orTerm_memo = nil;
-    self.andExpr_memo = nil;
-    self.andTerm_memo = nil;
-    self.relExpr_memo = nil;
-    self.relOp_memo = nil;
-    self.callExpr_memo = nil;
-    self.argList_memo = nil;
-    self.primary_memo = nil;
-    self.atom_memo = nil;
-    self.obj_memo = nil;
-    self.id_memo = nil;
-    self.member_memo = nil;
-    self.literal_memo = nil;
-    self.bool_memo = nil;
-    self.lt_memo = nil;
-    self.gt_memo = nil;
-    self.eq_memo = nil;
-    self.ne_memo = nil;
-    self.le_memo = nil;
-    self.ge_memo = nil;
-    self.openParen_memo = nil;
-    self.closeParen_memo = nil;
-    self.yes_memo = nil;
-    self.no_memo = nil;
-    self.dot_memo = nil;
-    self.comma_memo = nil;
-    self.or_memo = nil;
-    self.and_memo = nil;
-
-}
-
 - (void)clearMemo {
     [_expr_memo removeAllObjects];
     [_orExpr_memo removeAllObjects];

@@ -32,13 +32,6 @@
     return self;
 }
 
-- (void)dealloc {
-        
-    self.foo = nil;
-
-
-}
-
 - (void)start {
     [self execute:^{
     

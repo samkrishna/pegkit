@@ -166,11 +166,6 @@
     return self;
 }
 
-- (void)dealloc {
-    
-
-}
-
 - (void)start {
     [self execute:^{
     

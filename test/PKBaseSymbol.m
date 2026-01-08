@@ -40,13 +40,6 @@
 }
 
 
-- (void)dealloc {
-    self.name = nil;
-    self.type = nil;
-    self.def = nil;
-    self.scope = nil;
-}
-
 
 - (id)copyWithZone:(NSZone *)zone {
     PKBaseSymbol *that = [[[self class] alloc] initWithName:_name];

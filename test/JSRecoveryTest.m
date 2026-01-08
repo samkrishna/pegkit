@@ -10,11 +10,6 @@
 
 @implementation JSRecoveryTest
 
-- (void)dealloc {
-    self.parser = nil;
-    self.mock = nil;
-}
-
 - (void)parser:(PKParser *)p didMatchVar:(PKAssembly *)a {}
 - (void)parser:(PKParser *)p didMatchIdentifier:(PKAssembly *)a {}
 - (void)parser:(PKParser *)p didMatchVariable:(PKAssembly *)a {}

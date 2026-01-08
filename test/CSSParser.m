@@ -135,49 +135,6 @@
     return self;
 }
 
-- (void)dealloc {
-    
-    self.stylesheet_memo = nil;
-    self.ruleset_memo = nil;
-    self.selectors_memo = nil;
-    self.selector_memo = nil;
-    self.selectorWord_memo = nil;
-    self.selectorQuotedString_memo = nil;
-    self.commaSelector_memo = nil;
-    self.decls_memo = nil;
-    self.actualDecls_memo = nil;
-    self.decl_memo = nil;
-    self.property_memo = nil;
-    self.expr_memo = nil;
-    self.url_memo = nil;
-    self.urlLower_memo = nil;
-    self.urlUpper_memo = nil;
-    self.nonTerminatingSymbol_memo = nil;
-    self.important_memo = nil;
-    self.string_memo = nil;
-    self.constant_memo = nil;
-    self.openCurly_memo = nil;
-    self.closeCurly_memo = nil;
-    self.openBracket_memo = nil;
-    self.closeBracket_memo = nil;
-    self.eq_memo = nil;
-    self.comma_memo = nil;
-    self.colon_memo = nil;
-    self.semi_memo = nil;
-    self.openParen_memo = nil;
-    self.closeParen_memo = nil;
-    self.gt_memo = nil;
-    self.tilde_memo = nil;
-    self.pipe_memo = nil;
-    self.fwdSlash_memo = nil;
-    self.hash_memo = nil;
-    self.dot_memo = nil;
-    self.at_memo = nil;
-    self.bang_memo = nil;
-    self.num_memo = nil;
-
-}
-
 - (void)clearMemo {
     [_stylesheet_memo removeAllObjects];
     [_ruleset_memo removeAllObjects];

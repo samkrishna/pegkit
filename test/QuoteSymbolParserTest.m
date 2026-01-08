@@ -13,13 +13,6 @@
 
 @implementation QuoteSymbolParserTest
 
-- (void)dealloc {
-    self.factory = nil;
-    self.root = nil;
-    self.visitor = nil;
-    self.parser = nil;
-}
-
 
 - (void)setUp {
     self.factory = [PGParserFactory factory];

@@ -23,13 +23,6 @@
     return self;
 }
 
-- (void)dealloc {
-    
-    self.start_memo = nil;
-    self.nonReserved_memo = nil;
-
-}
-
 - (void)clearMemo {
     [_start_memo removeAllObjects];
     [_nonReserved_memo removeAllObjects];

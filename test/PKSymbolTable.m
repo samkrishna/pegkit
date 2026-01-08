@@ -24,10 +24,6 @@
 }
 
 
-- (void)dealloc {
-    self.globals = nil;
-}
-
 
 - (void)define:(PKBaseSymbol *)sym {
     [_globals define:sym];

@@ -25,14 +25,6 @@
 - (void)parser:(PKParser *)p didMatchStructure:(PKAssembly *)a {}
 - (void)parser:(PKParser *)p didMatchStructs:(PKAssembly *)a {}
 
-- (void)dealloc {
-    self.factory = nil;
-    self.root = nil;
-    self.visitor = nil;
-    self.parser = nil;
-    self.mock = nil;
-}
-
 
 - (void)setUp {
     self.factory = [PGParserFactory factory];
