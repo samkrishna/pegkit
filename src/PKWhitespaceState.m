@@ -45,7 +45,7 @@
 @end
 
 @interface PKWhitespaceState ()
-@property (nonatomic, retain) NSMutableArray *whitespaceChars;
+@property (nonatomic, strong) NSMutableArray *whitespaceChars;
 @end
 
 @implementation PKWhitespaceState
@@ -62,12 +62,6 @@
         [self setWhitespaceChars:YES from:0 to:' '];
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.whitespaceChars = nil;
-    [super dealloc];
 }
 
 
