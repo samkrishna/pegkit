@@ -26,8 +26,8 @@
 @interface PGDefinitionPhaseVisitor : PGBaseVisitor
 
 @property (nonatomic, assign) PGParserFactoryDelegateCallbacksOn delegatePostMatchCallbacksOn;
-@property (nonatomic, retain) NSMutableDictionary *tokenKinds;
+@property (nonatomic, strong) NSMutableDictionary *tokenKinds;
 @property (nonatomic, assign) BOOL collectTokenKinds;
-@property (nonatomic, retain) NSMutableDictionary *defaultDefNameTab;
+@property (nonatomic, strong) NSMutableDictionary *defaultDefNameTab;
 @property (nonatomic, assign) NSUInteger fallbackDefNameCounter;
 @end

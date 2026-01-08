@@ -335,8 +335,8 @@
 		D376F6E318D0B5090064C888 /* PEGKitParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E118D0B5090064C888 /* PEGKitParser.m */; };
 		D376F6ED18D0B5190064C888 /* PGBaseVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E518D0B5190064C888 /* PGBaseVisitor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D376F6EE18D0B5190064C888 /* PGBaseVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E518D0B5190064C888 /* PGBaseVisitor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D376F6EF18D0B5190064C888 /* PGDefinitionPhaseVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E718D0B5190064C888 /* PGDefinitionPhaseVisitor.m */; };
-		D376F6F018D0B5190064C888 /* PGDefinitionPhaseVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E718D0B5190064C888 /* PGDefinitionPhaseVisitor.m */; };
+		D376F6EF18D0B5190064C888 /* PGDefinitionPhaseVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E718D0B5190064C888 /* PGDefinitionPhaseVisitor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D376F6F018D0B5190064C888 /* PGDefinitionPhaseVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E718D0B5190064C888 /* PGDefinitionPhaseVisitor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D376F6F118D0B5190064C888 /* PGParserGenVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EA18D0B5190064C888 /* PGParserGenVisitor.m */; };
 		D376F6F218D0B5190064C888 /* PGParserGenVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EA18D0B5190064C888 /* PGParserGenVisitor.m */; };
 		D376F6F318D0B5190064C888 /* PGTokenKindDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EC18D0B5190064C888 /* PGTokenKindDescriptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };

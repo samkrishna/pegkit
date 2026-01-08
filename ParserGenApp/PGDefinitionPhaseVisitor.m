@@ -30,13 +30,6 @@
 
 @implementation PGDefinitionPhaseVisitor
 
-- (void)dealloc {
-    self.tokenKinds = nil;
-    self.defaultDefNameTab = nil;
-    [super dealloc];
-}
-
-
 - (NSString *)defaultDefNameForStringValue:(NSString *)strVal {
     NSString *defName = _defaultDefNameTab[strVal];
 
@@ -68,7 +61,7 @@
         [PGTokenKindDescriptor clearCache];
         self.tokenKinds = [NSMutableDictionary dictionary];
         self.fallbackDefNameCounter = 1;
-        self.defaultDefNameTab = [[@{
+        self.defaultDefNameTab = [@{
             @"~": @"TILDE",
             @"`": @"BACKTICK",
             @"!": @"BANG",
@@ -216,13 +209,13 @@
             @"Letter" : @"LETTER_TITLE",
             @"Char" : @"CHAR_TITLE",
             @"SpecificChar": @"SPECIFICCHAR_TITLE",
-        } mutableCopy] autorelease];
+        } mutableCopy];
     }
     
     [self recurse:node];
 
     if (_collectTokenKinds) {
-        node.tokenKinds = [[[_tokenKinds allValues] mutableCopy] autorelease];
+        node.tokenKinds = [[_tokenKinds allValues] mutableCopy];
         self.tokenKinds = nil;
     }
 
