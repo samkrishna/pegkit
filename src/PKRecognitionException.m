@@ -33,13 +33,6 @@
 }
 
 
-- (void)dealloc {
-    self.currentName = nil;
-    self.currentReason = nil;
-    [super dealloc];
-}
-
-
 - (NSString *)name {
     return self.currentName;
 }
