@@ -27,5 +27,5 @@
 @interface PGConstantNode : PGBaseNode
 
 @property (nonatomic, copy) NSString *literal;
-@property (nonatomic, retain) PGTokenKindDescriptor *tokenKind;
+@property (nonatomic, strong) PGTokenKindDescriptor *tokenKind;
 @end

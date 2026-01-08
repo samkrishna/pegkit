@@ -24,12 +24,6 @@
 #import <PEGKit/PKToken.h>
 
 @implementation PGConstantNode
-- (void)dealloc {
-    self.literal = nil;
-    self.tokenKind = nil;
-    [super dealloc];
-}
-
 
 - (NSUInteger)type {
     return PGNodeTypeConstant;
