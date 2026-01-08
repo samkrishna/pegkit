@@ -63,14 +63,14 @@
 - (NSUInteger)radixForSuffix:(NSString *)s;
 - (BOOL)isValidSeparator:(PKUniChar)sepChar forRadix:(NSUInteger)radix;
 
-@property (nonatomic, retain) PKSymbolRootNode *prefixRootNode;
-@property (nonatomic, retain) PKSymbolRootNode *suffixRootNode;
-@property (nonatomic, retain) NSMutableDictionary *radixForPrefix;
-@property (nonatomic, retain) NSMutableDictionary *radixForSuffix;
-@property (nonatomic, retain) NSMutableDictionary *separatorsForRadix;
+@property (nonatomic, strong) PKSymbolRootNode *prefixRootNode;
+@property (nonatomic, strong) PKSymbolRootNode *suffixRootNode;
+@property (nonatomic, strong) NSMutableDictionary *radixForPrefix;
+@property (nonatomic, strong) NSMutableDictionary *radixForSuffix;
+@property (nonatomic, strong) NSMutableDictionary *separatorsForRadix;
 
-@property (nonatomic, retain) NSString *prefix;
-@property (nonatomic, retain) NSString *suffix;
+@property (nonatomic, strong) NSString *prefix;
+@property (nonatomic, strong) NSString *suffix;
 @property (nonatomic) NSUInteger offset;
 @end
 
@@ -99,8 +99,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.prefixRootNode = [[[PKSymbolRootNode alloc] init] autorelease];
-        self.suffixRootNode = [[[PKSymbolRootNode alloc] init] autorelease];
+        self.prefixRootNode = [[PKSymbolRootNode alloc] init];
+        self.suffixRootNode = [[PKSymbolRootNode alloc] init];
         self.radixForPrefix = [NSMutableDictionary dictionary];
         self.radixForSuffix = [NSMutableDictionary dictionary];
         self.separatorsForRadix = [NSMutableDictionary dictionary];
@@ -122,18 +122,6 @@
         self.decimalSeparator = '.';
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.prefixRootNode = nil;
-    self.suffixRootNode = nil;
-    self.radixForPrefix = nil;
-    self.radixForSuffix = nil;
-    self.separatorsForRadix = nil;
-    self.prefix = nil;
-    self.suffix = nil;
-    [super dealloc];
 }
 
 
