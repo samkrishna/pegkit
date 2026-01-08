@@ -53,11 +53,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
-
-
 - (PKToken *)nextTokenFromReader:(PKReader *)r startingWith:(PKUniChar)cin tokenizer:(PKTokenizer *)t {
     NSParameterAssert(r);
     [self resetWithReader:r];
