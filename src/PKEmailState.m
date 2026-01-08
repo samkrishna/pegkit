@@ -47,11 +47,6 @@
 
 @implementation PKEmailState
 
-- (void)dealloc {
-    [super dealloc];
-}
-
-
 - (void)append:(PKUniChar)ch {
     self.lastChar = ch;
     [super append:ch];
