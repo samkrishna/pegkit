@@ -42,8 +42,8 @@
 @interface PKSingleLineCommentState ()
 - (void)addStartMarker:(NSString *)start;
 - (void)removeStartMarker:(NSString *)start;
-@property (nonatomic, retain) NSMutableArray *startMarkers;
-@property (nonatomic, retain) NSString *currentStartMarker;
+@property (nonatomic, strong) NSMutableArray *startMarkers;
+@property (nonatomic, strong) NSString *currentStartMarker;
 @end
 
 @implementation PKSingleLineCommentState
@@ -54,13 +54,6 @@
         self.startMarkers = [NSMutableArray array];
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.startMarkers = nil;
-    self.currentStartMarker = nil;
-    [super dealloc];
 }
 
 
