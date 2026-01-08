@@ -39,9 +39,9 @@
 @end
 
 @interface PKCommentState ()
-@property (nonatomic, retain) PKSymbolRootNode *rootNode;
-@property (nonatomic, retain) PKSingleLineCommentState *singleLineState;
-@property (nonatomic, retain) PKMultiLineCommentState *multiLineState;
+@property (nonatomic, strong) PKSymbolRootNode *rootNode;
+@property (nonatomic, strong) PKSingleLineCommentState *singleLineState;
+@property (nonatomic, strong) PKMultiLineCommentState *multiLineState;
 @end
 
 @interface PKSingleLineCommentState ()
@@ -64,19 +64,11 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.rootNode = [[[PKSymbolRootNode alloc] init] autorelease];
-        self.singleLineState = [[[PKSingleLineCommentState alloc] init] autorelease];
-        self.multiLineState = [[[PKMultiLineCommentState alloc] init] autorelease];
+        self.rootNode = [[PKSymbolRootNode alloc] init];
+        self.singleLineState = [[PKSingleLineCommentState alloc] init];
+        self.multiLineState = [[PKMultiLineCommentState alloc] init];
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.rootNode = nil;
-    self.singleLineState = nil;
-    self.multiLineState = nil;
-    [super dealloc];
 }
 
 
