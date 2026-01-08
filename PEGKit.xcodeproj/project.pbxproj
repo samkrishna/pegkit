@@ -301,8 +301,8 @@
 		D37214CB18DF3B0100525058 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37214CA18DF3B0100525058 /* OCMock.framework */; };
 		D37214CE18DF3BBE00525058 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37214CD18DF3BBE00525058 /* Foundation.framework */; };
 		D37214D018DF3BDC00525058 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37214CF18DF3BDC00525058 /* Cocoa.framework */; };
-		D376F6C118D0B3990064C888 /* PGActionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6A618D0B3990064C888 /* PGActionNode.m */; };
-		D376F6C218D0B3990064C888 /* PGActionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6A618D0B3990064C888 /* PGActionNode.m */; };
+		D376F6C118D0B3990064C888 /* PGActionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6A618D0B3990064C888 /* PGActionNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D376F6C218D0B3990064C888 /* PGActionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6A618D0B3990064C888 /* PGActionNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D376F6C318D0B3990064C888 /* PGAlternationNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6A818D0B3990064C888 /* PGAlternationNode.m */; };
 		D376F6C418D0B3990064C888 /* PGAlternationNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6A818D0B3990064C888 /* PGAlternationNode.m */; };
 		D376F6C518D0B3990064C888 /* PGBaseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6AA18D0B3990064C888 /* PGBaseNode.m */; };

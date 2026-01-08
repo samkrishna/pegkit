@@ -24,5 +24,5 @@
 
 @interface PGActionNode : PGBaseNode
 
-@property (nonatomic, retain) NSString *source;
+@property (nonatomic, strong) NSString *source;
 @end
