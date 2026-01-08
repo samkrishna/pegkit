@@ -39,6 +39,7 @@
 - (NSInteger)tokenKindForStringValue:(NSString *)str;
 @property (nonatomic, strong) PKReader *reader;
 @property (nonatomic, strong) NSMutableArray *tokenizerStates;
+@property (nonatomic, strong) NSMutableArray *enumerationTokens;
 @property (nonatomic, readwrite) NSUInteger lineNumber;
 @end
 
@@ -185,6 +186,12 @@
     PKToken *tok = nil;
     PKToken *eof = [PKToken EOFToken];
 
+    // Clear previous batch and prepare for new tokens
+    if (!_enumerationTokens) {
+        _enumerationTokens = [NSMutableArray array];
+    }
+    [_enumerationTokens removeAllObjects];
+
     if (0 == state->state) {
         tok = [self nextToken];
     } else {
@@ -192,6 +199,7 @@
     }
 
     while (tok != eof && count < len) {
+        [_enumerationTokens addObject:tok];  // Keep strong reference
         stackbuf[count] = tok;
         tok = [self nextToken];
         count++;

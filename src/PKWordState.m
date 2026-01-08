@@ -43,7 +43,7 @@
 @interface PKWordState () 
 - (BOOL)isWordChar:(PKUniChar)c;
 
-@property (nonatomic, retain) NSMutableArray *wordChars;
+@property (nonatomic, strong) NSMutableArray *wordChars;
 @end
 
 @implementation PKWordState
@@ -65,12 +65,6 @@
         [self setWordChars:YES from:0xC0 to:0xFF];
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.wordChars = nil;
-    [super dealloc];
 }
 
 
