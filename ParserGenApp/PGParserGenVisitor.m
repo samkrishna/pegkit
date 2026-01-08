@@ -81,9 +81,9 @@
 - (NSArray *)sortedArrayFromLookaheadSet:(NSSet *)set;
 - (NSSet *)lookaheadSetForNode:(PGBaseNode *)node;
 
-@property (nonatomic, retain) NSOutputStream *outputStream;
-@property (nonatomic, retain) NSMutableArray *outputStringStack;
-@property (nonatomic, retain) NSString *currentDefName;
+@property (nonatomic, strong) NSOutputStream *outputStream;
+@property (nonatomic, strong) NSMutableArray *outputStringStack;
+@property (nonatomic, strong) NSString *currentDefName;
 @end
 
 @implementation PGParserGenVisitor
@@ -99,19 +99,6 @@
         [self setUpTemplateEngine];
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.engine = nil;
-    self.interfaceOutputString = nil;
-    self.implementationOutputString = nil;
-    self.ruleMethodNames = nil;
-    self.startMethodName = nil;
-    self.outputStream = nil;
-    self.outputStringStack = nil;
-    self.currentDefName = nil;
-    [super dealloc];
 }
 
 
@@ -138,7 +125,7 @@
     NSError *err = nil;
     [_engine processTemplateString:tempStr withVariables:vars toStream:output error:&err];
     
-    NSString *result = [[[NSString alloc] initWithData:[output propertyForKey:NSStreamDataWrittenToMemoryStreamKey] encoding:NSUTF8StringEncoding] autorelease];
+    NSString *result = [[NSString alloc] initWithData:[output propertyForKey:NSStreamDataWrittenToMemoryStreamKey] encoding:NSUTF8StringEncoding];
     
     NSAssert([result length], @"");
     return result;
@@ -154,7 +141,7 @@
 
 - (NSMutableString *)pop {
     NSAssert([_outputStringStack count], @"");
-    NSMutableString *mstr = [[[_outputStringStack lastObject] retain] autorelease];
+    NSMutableString *mstr = [_outputStringStack lastObject];
     [_outputStringStack removeLastObject];
 
     NSAssert([mstr isKindOfClass:[NSMutableString class]], @"");
@@ -586,7 +573,7 @@
     
     // pop
     NSMutableString *childStr = [self pop];
-    vars[CHILD_STRING] = [[childStr copy] autorelease];
+    vars[CHILD_STRING] = [childStr copy];
     
     NSString *templateName = nil;
     if (isLL1) { // ????

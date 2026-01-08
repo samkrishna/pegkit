@@ -337,8 +337,8 @@
 		D376F6EE18D0B5190064C888 /* PGBaseVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E518D0B5190064C888 /* PGBaseVisitor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D376F6EF18D0B5190064C888 /* PGDefinitionPhaseVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E718D0B5190064C888 /* PGDefinitionPhaseVisitor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D376F6F018D0B5190064C888 /* PGDefinitionPhaseVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6E718D0B5190064C888 /* PGDefinitionPhaseVisitor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D376F6F118D0B5190064C888 /* PGParserGenVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EA18D0B5190064C888 /* PGParserGenVisitor.m */; };
-		D376F6F218D0B5190064C888 /* PGParserGenVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EA18D0B5190064C888 /* PGParserGenVisitor.m */; };
+		D376F6F118D0B5190064C888 /* PGParserGenVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EA18D0B5190064C888 /* PGParserGenVisitor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D376F6F218D0B5190064C888 /* PGParserGenVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EA18D0B5190064C888 /* PGParserGenVisitor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D376F6F318D0B5190064C888 /* PGTokenKindDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EC18D0B5190064C888 /* PGTokenKindDescriptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D376F6F418D0B5190064C888 /* PGTokenKindDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D376F6EC18D0B5190064C888 /* PGTokenKindDescriptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D37D8E361571A5A200CDB822 /* css.grammar in Resources */ = {isa = PBXBuildFile; fileRef = D380B5080F0D71A90009EC13 /* css.grammar */; };
