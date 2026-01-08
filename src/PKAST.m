@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 #import <PEGKit/PKAST.h>
+#import <PEGKit/PKToken.h>
 
 @interface PKAST ()
 @end
@@ -28,7 +29,7 @@
 @implementation PKAST
 
 + (instancetype)ASTWithToken:(PKToken *)tok {
-    return [[[self alloc] initWithToken:tok] autorelease];
+    return [[self alloc] initWithToken:tok];
 }
 
 
@@ -43,13 +44,6 @@
         self.token = tok;
     }
     return self;
-}
-
-
-- (void)dealloc {
-    self.token = nil;
-    self.children = nil;
-    [super dealloc];
 }
 
 
@@ -105,7 +99,7 @@
         [ms appendString:@")"];
     }
     
-    return [[ms copy] autorelease];
+    return [ms copy];
 }
 
 

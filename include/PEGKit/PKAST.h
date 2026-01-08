@@ -36,8 +36,8 @@
 - (NSString *)treeDescription;
 
 @property (nonatomic, assign, readonly) NSUInteger type;
-@property (nonatomic, retain, readonly) NSString *name;
+@property (nonatomic, strong, readonly) NSString *name;
 
-@property (nonatomic, retain) PKToken *token;
-@property (nonatomic, retain) NSMutableArray *children;
+@property (nonatomic, strong) PKToken *token;
+@property (nonatomic, strong) NSMutableArray *children;
 @end
